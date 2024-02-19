@@ -1,0 +1,49 @@
+{
+  "expo": {
+    "name": "ChargeEV",
+    "slug": "test",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "cover",
+      "backgroundColor": "#ffffff"
+    },
+    "updates": {
+      "fallbackToCacheTimeout": 0
+    },
+    "assetBundlePatterns": ["**/*"],
+    "ios": {
+      "supportsTablet": false,
+      "bundleIdentifier": "ChargeEV",
+      "config": {
+        "googleMapsApiKey": "AIzaSyDF8ECR3O5QiEaTRLms1fmu5HRW_K_G_xM"
+      },
+      "infoPlist": {
+        "NSLocationAlwaysAndWhenInUseUsageDescription": "App requires geolocation to get your location during booking",
+        "NSLocationAlwaysUsageDescription": "App requires geolocation to get your location during booking",
+        "NSLocationWhenInUseUsageDescription": "App requires geolocation to get EV charger locations",
+        "NSCameraUsageDescription": "The picture will be displayed in user charger search",
+        "UIBackgroundModes": ["location", "fetch"]
+      }
+    },
+    "android": {
+      "package": "com.ChargeEV.ChargeEV",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDFRRFH_TsLk71lVXeUsLZeL7ZapBKMtYU"
+        }
+      },
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#FFFFFF"
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "description": ""
+  }
+}
