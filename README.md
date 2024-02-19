@@ -25,7 +25,7 @@ Before running the BoltEV app, ensure you have Node.js and npm installed on your
 ### Farazuddin<br>
 
 * farazuddin.m99@gmail.com
-* [![LinkedIn][LinkedIn.com]][farazmd99]
+* [![LinkedIn] [LinkedIn.com]][farazmd99]
 * [![Github][Github.com]][MDfarazuddin99]
 
 ### Vineeth Reddy Thalasani<br>
@@ -45,3 +45,14 @@ Before running the BoltEV app, ensure you have Node.js and npm installed on your
 * romitganjoo@gmail.com
 * [![LinkedIn][LinkedIn.com]][romitganjoo98]
 * [![Github][Github.com]][romitganjoo]
+
+[LinkedIn.com]: https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white
+[Github.com]: https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white
+[vineethreddythalasani]: https://github.com/vineethreddythalasani
+[vineethreddyt]: https://www.linkedin.com/in/vineethreddyt/
+[farazmd99]: https://www.linkedin.com/in/farazmd99/
+[MDfarazuddin99]: https://github.com/MDfarazuddin99/BoltEV
+[sarkar-gaurav]: https://www.linkedin.com/in/sarkar-gaurav/
+[Gaurav3099]: https://github.com/Gaurav3099
+[romitganjoo98]:https://www.linkedin.com/in/romitganjoo98/
+[romitganjoo]:https://github.com/romitganjoo
