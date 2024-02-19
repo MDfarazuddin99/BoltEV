@@ -25,7 +25,7 @@ Before running the BoltEV app, ensure you have Node.js and npm installed on your
 ### Farazuddin<br>
 
 * farazuddin.m99@gmail.com
-* [![LinkedIn] [LinkedIn.com]][farazmd99]
+* [![LinkedIn][LinkedIn.com]][farazmd99]
 * [![Github][Github.com]][MDfarazuddin99]
 
 ### Vineeth Reddy Thalasani<br>
@@ -56,3 +56,39 @@ Before running the BoltEV app, ensure you have Node.js and npm installed on your
 [Gaurav3099]: https://github.com/Gaurav3099
 [romitganjoo98]:https://www.linkedin.com/in/romitganjoo98/
 [romitganjoo]:https://github.com/romitganjoo
+
+## Tech Stack
+
+### Built With
+
+* ![Expo][expo.com]
+* ![Javascript][js.com]
+* ![Firebase][firebase.com]
+* ![Google Cloud][googleCloud.com]
+* ![Python][Python.com]
+* ![Heroku][Heroku.com]
+
+### Tools used
+
+* ![Github][Github.com]
+* ![Sheets][Sheets.com]
+* ![Figma][Figma.com]
+
+### APIs used
+
+* Google Maps SDK
+
+* Google Places API
+
+* Google Geocoding API
+* Google Directions API
+
+
+[expo.com]: https://img.shields.io/badge/Expo-1B1F23?style=for-the-badge&logo=expo&logoColor=white
+[js.com]: https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E
+[firebase.com]: https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black
+[googleCloud.com]: https://img.shields.io/badge/Google_Cloud-4285F4?style=for-the-badge&logo=google-cloud&logoColor=white
+[Heroku.com]:  https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white
+[Python.com]: https://img.shields.io/badge/Python-FFD43B?style=for-the-badge&logo=python&logoColor=blue
+[Sheets.com]: https://img.shields.io/badge/Google%20Sheets-34A853?style=for-the-badge&logo=google-sheets&logoColor=white
+[Figma.com]: https://img.shields.io/badge/Figma-F24E1E?style=for-the-badge&logo=figma&logoColor=white
