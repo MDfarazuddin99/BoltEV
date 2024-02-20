@@ -68,6 +68,7 @@ export default function Welcome({ navigation }) {
       <Button
         title={buttonText}
         buttonStyle={{ width: 250, height: 50 }}
+        // style ={{marginTop: "200%", paddingTop: "20"}}
         containerStyle={styles.nextButton}
         onPress={handleNext}
       />
@@ -84,7 +85,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    marginBottom: "20%",
+    // borderRadius: 15,
+    padding: 50,
+    // marginBottom: "20%",
+    
   },
   image: {
     height: 170,
