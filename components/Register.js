@@ -65,7 +65,9 @@ export default function Register({ navigation }) {
   };
 
   return (
-    <KeyboardAwareScrollView style={styles.container}>
+    <KeyboardAwareScrollView
+      style={styles.container}
+    >
       <DismissKeyboardView>
         <SafeAreaView
           style={{
@@ -77,7 +79,7 @@ export default function Register({ navigation }) {
           <SafeAreaView style={styles.titleContainer}>
             <Text h1>Create Account</Text>
             <Text h2>An account for all your EV needs</Text>
-            <Text h4 style={{ color: "red" }}>
+            <Text h4 style={{ color: "red"}}>
               {error}
             </Text>
           </SafeAreaView>
@@ -141,7 +143,7 @@ const styles = StyleSheet.create({
     background:
       "linear-gradient(225deg, #FFFFFF 0%, #EFF1F5 100%, #EFF1F5 100%)",
     padding: "5%",
-    height: "100%",
+    height: "100%"
   },
   nameContainer: {
     display: "flex",
