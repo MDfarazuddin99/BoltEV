@@ -9,6 +9,7 @@ import * as Linking from "expo-linking";
 import AnimatedLottieView from "lottie-react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
+
 export default function Homepage({ navigation }) {
   const [userData, setUserData] = useState(null);
 
@@ -31,7 +32,14 @@ export default function Homepage({ navigation }) {
   }, [navigation]);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView
+    style={{
+
+      backgroundColor: "#000000",
+    }
+    }
+    >
+
       <View
         style={{
           flexDirection: "row",
@@ -40,25 +48,32 @@ export default function Homepage({ navigation }) {
           justifyContent: "center",
         }}
       >
-        <Avatar.Image
+        {/* <Avatar.Image
           source={{
             uri:
               userData != null && userData.get("userImg") != null
                 ? userData.get("userImg")
-                : "https://firebasestorage.googleapis.com/v0/b/chargeev-986bd.appspot.com/o/photos%2F1B2C5C85-6253-4C85-9355-BE0AEC1B9A921654325573980.png?alt=media&token=3a176203-5203-403f-b63e-d0aa37912875",
-          }}
+                // : "https://firebasestorage.googleapis.com/v0/b/chargeev-986bd.appspot.com/o/photos%2F1B2C5C85-6253-4C85-9355-BE0AEC1B9A921654325573980.png?alt=media&token=3a176203-5203-403f-b63e-d0aa37912875",
+                : "https://github.com/Gaurav3099/EV-Charging-mobile-App/blob/main/logo1.png?raw=true",
+                
+              }}
           size={100}
-          imageStyle={{ borderRadius: 15 }}
-        />
+      
+
+          
+        /> */}
+<Image source={{uri: 'https://github.com/Gaurav3099/EV-Charging-mobile-App/blob/main/logo1.png?raw=true'}}
+       style={{width: 350, height: 150}} />
       </View>
       <View styles={{ marginTop: 20 }}>
         <View style={{ marginTop: 10 }}>
           <Text
             h1
             h1Style={{ fontSize: 35, color: "#1BB530", textAlign: "center" }}
+            // h1Style={{ fontSize: 35, color: "#F44336", textAlign: "center" }}
           >
             Hi,{" "}
-            <Text h1 h1Style={{ fontSize: 35, color: "black" }}>
+            <Text h1 h1Style={{ fontSize: 35, color: "white" }}>
               {userData != null
                 ? userData.get("fname")
                 : authentication.currentUser.displayName}
@@ -87,7 +102,8 @@ export default function Homepage({ navigation }) {
         >
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("ChargeMap");
+              // navigation.navigate("ChargeMap");
+              navigation.navigate("ChargeMap.js");
             }}
           >
             <View style={styles.horiwelcome}>
@@ -172,7 +188,7 @@ export default function Homepage({ navigation }) {
         >
           <ImageBackground
             source={{
-              url: "https://motoristprod.s3.amazonaws.com/uploads/redactor_rails/picture/data/6125/ev-charging-stations-in-shopping-malls-singapore-featured.jpeg",
+              url: "https://github.com/Gaurav3099/EV-Charging-mobile-App/blob/main/ev-charging-stations-in-shopping-malls-singapore-featured.jpeg?raw=true",
             }}
             style={{ height: 175, width: "100%", marginLeft: "2.5%" }}
             imageStyle={{ borderRadius: 20 }}
@@ -205,7 +221,7 @@ export default function Homepage({ navigation }) {
         >
           <ImageBackground
             source={{
-              url: "https://cleantechnica.com/files/2018/03/Toyota-Prius-Prime-garage-plugging-in.jpg",
+              url: "https://github.com/Gaurav3099/EV-Charging-mobile-App/blob/main/ev-charging-stations-in-shopping-malls-singapore-featured.jpeg?raw=true",
             }}
             style={{ height: 175, width: "100%", marginLeft: "2.5%" }}
             imageStyle={{ borderRadius: 20 }}
