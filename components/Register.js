@@ -77,8 +77,8 @@ export default function Register({ navigation }) {
           }}
         >
           <SafeAreaView style={styles.titleContainer}>
-            <Text h1>Create Account</Text>
-            <Text h2>An account for all your EV needs</Text>
+            <Text h1 style={{color:"white"}}>Create Account</Text>
+            <Text h2 style={{color:"white"}}>An account for all your EV needs</Text>
             <Text h4 style={{ color: "red"}}>
               {error}
             </Text>
@@ -122,7 +122,7 @@ export default function Register({ navigation }) {
             containerStyle={{ marginTop: 10 }}
             onPress={handleRegister}
           />
-          <Text h4 style={{ marginTop: 20 }}>
+          <Text h4 style={{ marginTop: 20, color:"white"}}>
             Already have an account?{" "}
             <Text
               style={{ color: "#1BB530", textDecorationLine: "underline" }}
@@ -140,6 +140,7 @@ export default function Register({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:"black",
     background:
       "linear-gradient(225deg, #FFFFFF 0%, #EFF1F5 100%, #EFF1F5 100%)",
     padding: "5%",
