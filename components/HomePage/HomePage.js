@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import {React, useState, useEffect} from "react";
 import { SafeAreaView, StyleSheet, View, ImageBackground } from "react-native";
 import { Text, Button, Divider, Image } from "@rneui/themed";
 import { authentication, firestore } from "../../firebase/firebase-config";
@@ -8,7 +8,6 @@ import { ScrollView, TouchableOpacity } from "react-native-gesture-handler";
 import * as Linking from "expo-linking";
 import AnimatedLottieView from "lottie-react-native";
 import { LinearGradient } from "expo-linear-gradient";
-
 
 export default function Homepage({ navigation }) {
   const [userData, setUserData] = useState(null);
@@ -32,14 +31,10 @@ export default function Homepage({ navigation }) {
   }, [navigation]);
 
   return (
-    <SafeAreaView
-    style={{
-
-      backgroundColor: "#000000",
-    }
-    }
-    >
-
+    <SafeAreaView  
+        style={{
+          backgroundColor: "#000000"
+        }}>
       <View
         style={{
           flexDirection: "row",
@@ -48,29 +43,22 @@ export default function Homepage({ navigation }) {
           justifyContent: "center",
         }}
       >
-        {/* <Avatar.Image
+        <Avatar.Image
           source={{
             uri:
               userData != null && userData.get("userImg") != null
                 ? userData.get("userImg")
-                // : "https://firebasestorage.googleapis.com/v0/b/chargeev-986bd.appspot.com/o/photos%2F1B2C5C85-6253-4C85-9355-BE0AEC1B9A921654325573980.png?alt=media&token=3a176203-5203-403f-b63e-d0aa37912875",
-                : "https://github.com/Gaurav3099/EV-Charging-mobile-App/blob/main/logo1.png?raw=true",
-                
-              }}
+                : "https://firebasestorage.googleapis.com/v0/b/chargeev-986bd.appspot.com/o/photos%2F1B2C5C85-6253-4C85-9355-BE0AEC1B9A921654325573980.png?alt=media&token=3a176203-5203-403f-b63e-d0aa37912875",
+          }}
           size={100}
-      
-
-          
-        /> */}
-<Image source={{uri: 'https://github.com/Gaurav3099/EV-Charging-mobile-App/blob/main/logo1.png?raw=true'}}
-       style={{width: 350, height: 150}} />
+          imageStyle={{ borderRadius: 15 }}
+        />
       </View>
       <View styles={{ marginTop: 20 }}>
         <View style={{ marginTop: 10 }}>
           <Text
             h1
             h1Style={{ fontSize: 35, color: "#1BB530", textAlign: "center" }}
-            // h1Style={{ fontSize: 35, color: "#F44336", textAlign: "center" }}
           >
             Hi,{" "}
             <Text h1 h1Style={{ fontSize: 35, color: "white" }}>
@@ -91,7 +79,7 @@ export default function Homepage({ navigation }) {
             Need A Charge?
           </Text>
         </View>
-        <Divider style={{ width: "95%", margin: "2%" }} color="black" />
+        <Divider style={{ width: "95%", margin: "2%" }} color="white" />
         <ScrollView
           horizontal={true}
           showsHorizontalScrollIndicator={false}
@@ -102,8 +90,7 @@ export default function Homepage({ navigation }) {
         >
           <TouchableOpacity
             onPress={() => {
-              // navigation.navigate("ChargeMap");
-              navigation.navigate("ChargeMap.js");
+              navigation.navigate("ChargeMap");
             }}
           >
             <View style={styles.horiwelcome}>
@@ -188,7 +175,7 @@ export default function Homepage({ navigation }) {
         >
           <ImageBackground
             source={{
-              url: "https://github.com/Gaurav3099/EV-Charging-mobile-App/blob/main/ev-charging-stations-in-shopping-malls-singapore-featured.jpeg?raw=true",
+              uri: "https://motoristprod.s3.amazonaws.com/uploads/redactor_rails/picture/data/6125/ev-charging-stations-in-shopping-malls-singapore-featured.jpeg",
             }}
             style={{ height: 175, width: "100%", marginLeft: "2.5%" }}
             imageStyle={{ borderRadius: 20 }}
@@ -221,7 +208,7 @@ export default function Homepage({ navigation }) {
         >
           <ImageBackground
             source={{
-              url: "https://github.com/Gaurav3099/EV-Charging-mobile-App/blob/main/ev-charging-stations-in-shopping-malls-singapore-featured.jpeg?raw=true",
+              uri: "https://drive.google.com/file/d/1UQ6Vn78guIh_X4SEtDCuQNiLJRB6wniv/view?usp=sharing",
             }}
             style={{ height: 175, width: "100%", marginLeft: "2.5%" }}
             imageStyle={{ borderRadius: 20 }}
@@ -254,7 +241,7 @@ export default function Homepage({ navigation }) {
         >
           <ImageBackground
             source={{
-              url: "https://images.mktw.net/im-309602?width=1280&size=1.33333333",
+              uri: "https://images.mktw.net/im-309602?width=1280&size=1.33333333",
             }}
             style={{ height: 175, width: "100%", marginLeft: "2.5%" }}
             imageStyle={{ borderRadius: 20 }}

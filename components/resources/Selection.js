@@ -9,7 +9,7 @@ import {
 } from "react-native";
 import { Button, Text, Input, Divider } from "@rneui/themed";
 
-export default function Selection({ logoName, logoType, title, onPress }) {
+export default function Selection({ logoName, logoType, title, onPress, textColor }) {
   return (
     <TouchableHighlight
       underlayColor="#7777"
@@ -19,10 +19,10 @@ export default function Selection({ logoName, logoType, title, onPress }) {
       <>
         <View style={styles.container}>
           <Icon name={logoName} type={logoType} style={{ marginRight: 10 }} />
-          <Text h4 style={{ flex: 1 }} h4Style={{fontFamily: "Inter-Regular"}}>
+          <Text h4 style={{ flex: 1, color: textColor }} h4Style={{fontFamily: "Inter-Regular", color: textColor}}>
             {title}
           </Text>
-          <Icon type="MaterialIcons" name="arrow-forward-ios" />
+          <Icon type="MaterialIcons" name="arrow-forward-ios" color="white" />
         </View>
         <Divider style={{ width: "90%", marginTop: "3%", marginLeft:"5%" }} color="#7777" />
       </>

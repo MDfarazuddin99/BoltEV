@@ -1028,7 +1028,7 @@ export default function ChargeMap({ navigation }) {
         />
         <Text
           h5
-          style={{ maxWidth: 200, textAlign: "center", marginTop: "-20%" }}
+          style={{ maxWidth: 200, textAlign: "center", marginTop: "-20%", color:"white" }}
         >
           Loading...
         </Text>
@@ -1047,24 +1047,24 @@ export default function ChargeMap({ navigation }) {
             alignItems: "center",
           }}
         >
-          <Text h2 h2Style={{ fontFamily: "Inter-Bold" }}>
+          <Text h2 h2Style={{ fontFamily: "Inter-Bold", color:"white" }}>
             {locations[0].type == "ChargeEV"
               ? locations[0].address + " " + locations[0].unitNumber
               : locations[0].name}
           </Text>
-          <Text h4 style={{ textAlign: "center" }}>
+          <Text h4 style={{ textAlign: "center", color:"white" }}>
             {locations[0].type == "ChargeEV"
               ? locations[0].postalCode
               : locations[0].vicinity}
           </Text>
-          <Text h4>
+          <Text h4 style={{ textAlign: "center", color:"white" }}>
             {Math.round(locations[0].distance * 10) / 10} km ,{" "}
             {Math.round(locations[0].travelTime)} min
           </Text>
         </View>
         <View
           style={{
-            backgroundColor: "black",
+            backgroundColor: "white",
             width: 300,
             height: "0.3%",
             marginTop: "2%",
@@ -1088,13 +1088,13 @@ export default function ChargeMap({ navigation }) {
               borderRadius: 50,
             }}
           />
-          <View style={{ marginLeft: "2%" }}>
-            <Text h5>
+          <View style={{ marginLeft: "2%", color:"white"}}>
+            <Text h5 style={{color:"white"}}>
               {locations[0].type == "ChargeEV"
                 ? locations[0].hostName
                 : "Data from Google"}
             </Text>
-            <Text h5>
+            <Text h5 style={{color:"white"}}>
               {locations[0].rating != 0
                 ? Math.round(locations[0].rating * 10) / 10 + "⭐"
                 : "No Reviews"}
@@ -1112,6 +1112,7 @@ export default function ChargeMap({ navigation }) {
                   fontFamily: "Inter-Bold",
                   marginBottom: "2%",
                   fontSize: 17,
+                  color:"white"
                 }}
               >
                 Charger Type
@@ -1134,7 +1135,7 @@ export default function ChargeMap({ navigation }) {
                     }
                     style={{ width: 20, height: 20 }}
                   />
-                  <Text>{charger}</Text>
+                  <Text style={{color:"white"}}>{charger}</Text>
                 </View>
               ))}
             </View>
@@ -1145,11 +1146,12 @@ export default function ChargeMap({ navigation }) {
                   fontFamily: "Inter-Bold",
                   marginBottom: "2%",
                   fontSize: 17,
+                  color:"white",
                 }}
               >
                 Housing Type
               </Text>
-              <Text>{locations[0].housingType}</Text>
+              <Text style={{color:"white"}}>{locations[0].housingType}</Text>
             </View>
             {/* Price */}
             <View style={styles.infoContainer}>
@@ -1158,11 +1160,12 @@ export default function ChargeMap({ navigation }) {
                   fontFamily: "Inter-Bold",
                   marginBottom: "2%",
                   fontSize: 17,
+                  color:"white",
                 }}
               >
                 Amount Payable
               </Text>
-              <Text>${locations[0].costPerCharge}</Text>
+              <Text style={{color:'white'}}>${locations[0].costPerCharge}</Text>
             </View>
             {/* Payment Method */}
             <View style={styles.infoContainer}>
@@ -1171,11 +1174,12 @@ export default function ChargeMap({ navigation }) {
                   fontFamily: "Inter-Bold",
                   marginBottom: "2%",
                   fontSize: 17,
+                  color:"white",
                 }}
               >
                 Payment Method(s)
               </Text>
-              <Text>{locations[0].paymentMethod.join()}</Text>
+              <Text style={{color:"white"}}>{locations[0].paymentMethod.join()}</Text>
             </View>
           </View>
         ) : null}
@@ -1634,7 +1638,7 @@ export default function ChargeMap({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#FFF",
     alignItems: "center",
     justifyContent: "center",
   },
@@ -1648,6 +1652,7 @@ const styles = StyleSheet.create({
     bottom: "2%",
     backgroundColor: "white",
     width: "95%",
+    backgroundColor:"#000000",
     height: "30%",
     borderRadius: 20,
     padding: "2%",
@@ -1702,7 +1707,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-around",
     alignItems: "center",
-    backgroundColor: "black",
+    backgroundColor: "#1BB530",
     padding: "1%",
     borderRadius: 10,
     width: "30%",
@@ -1740,6 +1745,7 @@ const styles = StyleSheet.create({
   locationSelectedContainer: {
     display: "flex",
     justifyContent: "center",
+    // color:"white",
     alignItems: "center",
     padding: "2%",
   },
@@ -1763,10 +1769,12 @@ const styles = StyleSheet.create({
   extraInfoParentContainer: {
     width: 300,
     paddingBottom: "10%",
+    backgroundColor:"#000000",
     marginTop: "5%",
   },
   infoContainer: {
     marginTop: "5%",
+    color:"white",
   },
   bookedIcon: {
     display: "flex",

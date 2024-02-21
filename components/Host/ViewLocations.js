@@ -58,7 +58,8 @@ export default function ViewLocations({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.rootContainer}>
+      <View style={styles.container}>
       <ScrollView
         style={styles.scrollContainer}
         contentContainerStyle={{ alignItems: "center" }}
@@ -138,18 +139,24 @@ export default function ViewLocations({ navigation }) {
             <Text
               h2
               h2Style={{ textAlign: "center" }}
-              style={{ marginTop: "20%" }}
+              style={{ marginTop: "20%", color:"white" }}
+
             >
               We do not have any records of locations hosted by you.
             </Text>
           </View>
         )}
       </ScrollView>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  rootContainer: {
+    flex: 1,
+    backgroundColor:"#000000"
+  },
   container: {
     flex: 1,
     display: "flex",

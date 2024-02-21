@@ -85,7 +85,8 @@ export default function HostPaymentInformation({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.rootContainer}>
+      <View style={styles.container}>
       {loading ? (
         <View
           style={{ height: "100%", display: "flex", justifyContent: "center" }}
@@ -102,7 +103,7 @@ export default function HostPaymentInformation({ navigation }) {
           <Text
             h2
             h2Style={{ textAlign: "center" }}
-            style={{ marginTop: "-10%" }}
+            style={{ marginTop: "-10%", color:"white" }}
           >
             Loading Information...
           </Text>
@@ -116,6 +117,7 @@ export default function HostPaymentInformation({ navigation }) {
                 marginBottom: "3%",
                 fontFamily: "Inter-Bold",
                 fontSize: 17,
+                color:"white",
               }}
             >
               Current Payment Methods
@@ -123,12 +125,13 @@ export default function HostPaymentInformation({ navigation }) {
             {currPaymentMethods.length > 0 ? (
               currPaymentMethods.map((x, index) => (
                 <View key={index} style={styles.paymentContainer}>
-                  <Icon name={x == "Cash" ? "money" : "qr-code"} />
+                  <Icon name={x == "Cash" ? "money" : "qr-code"} color="white" />
                   <Text
                     style={{
                       fontFamily: "Inter-Regular",
                       fontSize: 15,
                       marginLeft: "2%",
+                      color:"white",
                       flex: 1,
                     }}
                   >
@@ -162,6 +165,7 @@ export default function HostPaymentInformation({ navigation }) {
                 marginBottom: "3%",
                 fontFamily: "Inter-Bold",
                 fontSize: 17,
+                color:"white",
               }}
             >
               Add Payment Methods
@@ -173,18 +177,19 @@ export default function HostPaymentInformation({ navigation }) {
                   style={styles.paymentContainer}
                   onPress={() => addPayment(x)}
                 >
-                  <Icon name={x == "Cash" ? "money" : "qr-code"} />
+                  <Icon name={x == "Cash" ? "money" : "qr-code"} color="white" />
                   <Text
                     style={{
                       fontFamily: "Inter-Regular",
                       fontSize: 15,
+                      color:"white",
                       marginLeft: "2%",
                       flex: 1,
                     }}
                   >
                     {x}
                   </Text>
-                  <Icon name="arrow-forward-ios" />
+                  <Icon name="arrow-forward-ios" color="white" />
                 </TouchableOpacity>
               ))
             ) : (
@@ -195,11 +200,16 @@ export default function HostPaymentInformation({ navigation }) {
           </View>
         </>
       )}
+    </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  rootContainer:{
+    flex: 1,
+    backgroundColor:"#000000",
+  },
   container: {
     flex: 1,
     display: "flex",
@@ -210,12 +220,14 @@ const styles = StyleSheet.create({
   currPaymentContainer: {
     display: "flex",
     justifyContent: "flex-start",
+    color:"#FFFFFF",
     width: "100%",
     marginTop: "2%",
   },
   paymentContainer: {
     borderWidth: 1,
     borderRadius: 10,
+    borderColor:"#1BB530",
     padding: "5%",
     marginBottom: "2%",
     display: "flex",
