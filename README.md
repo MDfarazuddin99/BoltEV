@@ -1,3 +1,4 @@
+
 # BoltEV - Electric Vehicle Charging Platform for Mobiles
 
 BoltEV is a mobile application built with React Native that provides users with an easy-to-use platform for locating and managing electric vehicle (EV) charging stations. With BoltEV, users can find nearby charging stations, view station details, initiate charging sessions, track charging history, and more.
