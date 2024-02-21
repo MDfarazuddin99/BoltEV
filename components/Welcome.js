@@ -44,31 +44,26 @@ export default function Welcome({ navigation }) {
 
   return (
     <SafeAreaView style={styles.container}>
-      {page == 0 ? 
-      // <Image
-      //   style={styles.image}
-      //   source={require("../assets/logo1.png")}
-      // /> 
-      <Image source={{uri: 'https://github.com/Gaurav3099/EV-Charging-mobile-App/blob/main/logo1.png?raw=true'}}
-       style={{width: 350, height: 150}} />
-      : <AnimatedLottieView autoPlay
+      {page == 0 ? <Image
+        style={styles.image}
+        source={require("../assets/welcomeLogo.png")}
+      /> : <AnimatedLottieView autoPlay
         style={{
           width: 300,
           height: 300,
           marginTop: "-5%"
         }}
         source={page == 1 ? require("../assets/animations/host.json/"):require("../assets/animations/loading.json/")} />}
-      <Text h1 style={{ marginBottom: 10, color:"#FFFFFF"}}>
+      <Text h1 style={{ marginBottom: 10 }}>
         {title}
       </Text>
-      <Text h2 h2Style={{ fontSize: 25, marginBottom: 5, color:"#FFFFFF" }}>
+      <Text h2 h2Style={{ fontSize: 25, marginBottom: 5 }}>
         {subTitle}
       </Text>
-      <Text h4 style={{color:"#FFFFFF"}}>{text}</Text>
+      <Text h4>{text}</Text>
       <Button
         title={buttonText}
         buttonStyle={{ width: 250, height: 50 }}
-        // style ={{marginTop: "200%", paddingTop: "20"}}
         containerStyle={styles.nextButton}
         onPress={handleNext}
       />
@@ -77,18 +72,13 @@ export default function Welcome({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  
   container: {
-    backgroundColor: "#1e1d1d",
     flex: 1,
     flexDirection: "column",
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    // borderRadius: 15,
-    padding: 50,
-    // marginBottom: "20%",
-    
+    marginBottom: "20%",
   },
   image: {
     height: 170,

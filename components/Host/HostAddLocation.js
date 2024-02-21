@@ -293,7 +293,8 @@ export default function HostAddLocation({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.rootContainer}>
+      <View style={styles.container}>
       <Text
         h1
         h1Style={{
@@ -301,11 +302,12 @@ export default function HostAddLocation({ navigation }) {
           textAlign: "center",
           paddingTop: "5%",
           width: "85%",
+          color:"#1BB530",
         }}
       >
         {titleArr[page]}
       </Text>
-      <Divider style={{ width: "90%", margin: 20 }} color="black" />
+      <Divider style={{ width: "90%", margin: 20 }} color="white" />
       <Animated.View
         style={[
           styles.progressBar,
@@ -321,7 +323,7 @@ export default function HostAddLocation({ navigation }) {
         <PlaceType
           setLocationType={setLocationType}
           locationType={locationType}
-        />
+         />
       ) : page == 1 ? (
         <Address
           country={country}
@@ -376,11 +378,16 @@ export default function HostAddLocation({ navigation }) {
           <Icon name="east" color="white" />
         </Button>
       </View>
+      </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+  rootContainer: {
+    flex:1,
+    backgroundColor:"#000000"
+  },
   container: {
     height: "100%",
     width: "100%",

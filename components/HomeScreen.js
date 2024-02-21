@@ -17,6 +17,9 @@ export default function HomeScreen() {
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: "#1BB530",
+        tabBarStyle: {
+          backgroundColor: "black", 
+        },
       }}
     >
       <Tab.Screen
@@ -60,7 +63,7 @@ export default function HomeScreen() {
         }}/>
       <Tab.Screen name="Profile" component={Profile} options={{
           tabBarLabel: (props) => (
-            <Text style={{ color: props.color }}>Profile</Text>
+            <Text style={{color: props.color}}>Profile</Text>
           ),
           tabBarIcon: (props) => (
             <Icon color={props.color} name="account-circle"/>

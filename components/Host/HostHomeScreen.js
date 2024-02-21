@@ -64,19 +64,20 @@ export default function HostHomeScreen({ navigation }) {
   }, [navigation]);
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: "#000000"}}>
       <SafeAreaView style={styles.container}>
         <Text h1 h1Style={{ fontSize: 35, color: "#1BB530" }}>
           Hello,{" "}
-          <Text h1 h1Style={{ fontSize: 35, color: "black" }}>
+          <Text h1 h1Style={{ fontSize: 35, color: "white" }}>
             {name}
           </Text>
         </Text>
-        <Divider style={{ width: "100%", margin: 20 }} color="black" />
+        <Divider style={{ width: "100%", margin: 20 }} color="white" />
         <Text
           h2
           h2Style={{
             fontFamily: "Inter-Bold",
+            color: "#1BB530",
             alignSelf: "flex-start",
             paddingLeft: "2%",
             marginBottom: 5,
@@ -84,16 +85,19 @@ export default function HostHomeScreen({ navigation }) {
         >
           Manage
         </Text>
+        
         <Selection
           title="Manage Payment Information"
           logoName="wallet"
           logoType="entypo"
+          textColor="white"
           onPress={() => navigation.navigate("Payment Information")}
         />
         <Text
           h2
           h2Style={{
             fontFamily: "Inter-Bold",
+            color: "#1BB530",
             alignSelf: "flex-start",
             paddingLeft: "2%",
             marginTop: 30,
@@ -105,17 +109,20 @@ export default function HostHomeScreen({ navigation }) {
         <Selection
           title="View and Edit Hosted Locations"
           logoName="location-pin"
+          textColor="white"
           onPress={userEditLocation}
         />
         <Selection
           title="Add New Location"
           logoName="add-location"
+          textColor="white"
           onPress={userAddLocation}
         />
         <Text
           h2
           h2Style={{
             fontFamily: "Inter-Bold",
+            color: "#1BB530",
             alignSelf: "flex-start",
             paddingLeft: "2%",
             marginTop: 30,
@@ -127,6 +134,7 @@ export default function HostHomeScreen({ navigation }) {
         <Selection
           title="Get Support"
           logoName="contact-support"
+          textColor="white"
           onPress={() => Linking.openURL("https://t.me/ChargeEVHelpBot")}
         />
       </SafeAreaView>
