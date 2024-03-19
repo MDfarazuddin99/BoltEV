@@ -35,10 +35,24 @@ export default function HostNavigator({ navigation }) {
         component={HostPaymentInformation}
         options={{
             headerShown: true,
+            headerStyle: {
+              backgroundColor: "black", // Set the header background color to black
+            },
+            headerTintColor: "white", // Set the header text color to white
+            headerTitleStyle: {
+              fontWeight: "bold", // Set the header title font weight to bold
+            },
           }}
       />
       <Host.Screen name="View Locations" component={ViewLocations} options={{
             headerShown: true,
+            headerStyle: {
+              backgroundColor: "black", // Set the header background color to black
+            },
+            headerTintColor: "white", // Set the header text color to white
+            headerTitleStyle: {
+              fontWeight: "bold", // Set the header title font weight to bold
+            },
           }}/>
     </Host.Navigator>
   );

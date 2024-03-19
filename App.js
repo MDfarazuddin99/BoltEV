@@ -48,6 +48,12 @@ export default function App() {
   const notificationListener = useRef();
   const responseListener = useRef();
 
+  // ===
+
+
+
+  //--
+
   // Loads in Fonts and AsyncStorage data
   useEffect(() => {
     const storeData = async () => {
@@ -157,7 +163,9 @@ export default function App() {
   }
 
   return (
-    <ThemeProvider theme={theme}>
+
+    <ThemeProvider theme={theme}
+    >
       <NavigationContainer style={styles.container}>
         <StatusBar style="dark" />
         <Stack.Navigator
@@ -215,6 +223,7 @@ export default function App() {
         </Stack.Navigator>
       </NavigationContainer>
     </ThemeProvider>
+
   );
 }
 
@@ -223,6 +232,7 @@ const styles = StyleSheet.create({
     display: "flex",
     background:
       "linear-gradient(225deg, #FFFFFF 0%, #EFF1F5 100%, #EFF1F5 100%)",
+      // "linear-gradient(225deg, #f44336 0%, #f44336 100%, #f44336 100%)",
     alignItems: "center",
     justifyContent: "center",
   },

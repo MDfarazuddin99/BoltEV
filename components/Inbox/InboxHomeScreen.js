@@ -44,7 +44,7 @@ export default function InboxHomeScreen({ navigation }) {
         />
         <Text
           h2
-          h2Style={{ textAlign: "center" }}
+          h2Style={{ textAlign: "center", color:"white"}}
           style={{marginTop: "15%"}}
         >
           There is nothing here yet
@@ -118,8 +118,10 @@ export default function InboxHomeScreen({ navigation }) {
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <Text h1 h1Style={{ fontSize: 50 }}>
+    
+    <SafeAreaView  style={styles.rootContainer}>
+      <View style={styles.container}>
+      <Text h1 h1Style={{ fontSize: 50, color: "white"}}>
         Inbox
       </Text>
       {/* Toggle between host and user notifications */}
@@ -215,21 +217,28 @@ export default function InboxHomeScreen({ navigation }) {
           />
           <Text
             h2
-            h2Style={{ textAlign: "center" }}
+            h2Style={{ textAlign: "center", color:"white" }}
             style={{ marginTop: "-10%" }}
           >
             Loading Messages...
           </Text>
         </View>
       )}
+      </View>
     </SafeAreaView>
+    
   );
 }
 
 const styles = StyleSheet.create({
+  rootContainer:{
+    flex : 1,
+    backgroundColor: "black"
+  },
   container: {
     margin: "5%",
-    marginTop: "12%",
+    marginTop: "12%"
+
   },
   optionContainer: {
     display: "flex",

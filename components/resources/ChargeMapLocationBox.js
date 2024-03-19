@@ -23,30 +23,30 @@ export default function ChargeMapLocationBox({ location, onPress }) {
         style={styles.image}
       />
       <View style={{ width: "50%" }}>
-        <Text h4 h4Style={{ fontFamily: "Inter-Black", maxHeight: "40%" }}>
+        <Text h4 h4Style={{ fontFamily: "Inter-Black", maxHeight: "40%", color:"white" }}>
           {location.type == "ChargeEV" ? location.address : location.name}
         </Text>
-        <Text h4 h4Style={{ fontSize: 10 }}>
+        <Text h4 h4Style={{ fontSize: 10, color:"white" }}>
           {location.distance > 1000
             ? Math.round(location.distance / 100) / 10 + " km"
             : Math.round(location.distance) + "m"}{" "}
           away
         </Text>
         <Divider
-          style={{ marginTop: "2%", marginBottom: "2%" }}
-          color="black"
+          style={{ marginTop: "2%", marginBottom: "2%", color:"white" }}
+          color="white"
         />
-        <Text h3 h3Style={{ fontSize: 10 }} style={{ marginBottom: "2%" }}>
+        <Text h3 h3Style={{ fontSize: 10, color:"white" }} style={{ marginBottom: "2%", color:"white" }}>
           {location.rating != 0
             ? Math.round(location.rating * 10) / 10 + "⭐"
             : "No Reviews"}
         </Text>
-        <Text h3 h3Style={{ fontSize: 12 }}>
+        <Text h3 h3Style={{ fontSize: 12, color:"white" }}>
           {location.type == "ChargeEV"
             ? location.chargerType.join() + " Charger"
             : location.vicinity}
         </Text>
-        <Text h3 h3Style={{ fontSize: 12 }}>
+        <Text h3 h3Style={{ fontSize: 12, color:"white" }}>
           {location.type == "ChargeEV"
             ? "$" + location.costPerCharge + " / charge"
             : "Public Charger"}
@@ -69,7 +69,7 @@ export default function ChargeMapLocationBox({ location, onPress }) {
 const styles = StyleSheet.create({
   locationBox: {
     width: "90%",
-    borderColor: "black",
+    borderColor: "white",
     borderStyle: "solid",
     borderWidth: 1,
     borderRadius: 10,

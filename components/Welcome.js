@@ -7,7 +7,7 @@ export default function Welcome({ navigation }) {
   // Content
   const titles = ["Welcome", "Hosts", "Users"];
   const subTitles = [
-    "We are ChargeEV",
+    "We are BoltEV",
     "Loan out your Charger",
     "Loan a charger",
   ];
@@ -54,31 +54,35 @@ export default function Welcome({ navigation }) {
           marginTop: "-5%"
         }}
         source={page == 1 ? require("../assets/animations/host.json/"):require("../assets/animations/loading.json/")} />}
-      <Text h1 style={{ marginBottom: 10 }}>
+      <Text h1 style={{ marginBottom: 10, color:"#1BB530" }}>
         {title}
       </Text>
-      <Text h2 h2Style={{ fontSize: 25, marginBottom: 5 }}>
+      <Text h2 h2Style={{ fontSize: 25, marginBottom: 5, color:"white" }}>
         {subTitle}
       </Text>
-      <Text h4>{text}</Text>
+      
+      <Text h4 style={{color:"white"}}>{text}</Text>
+      
       <Button
         title={buttonText}
         buttonStyle={{ width: 250, height: 50 }}
         containerStyle={styles.nextButton}
         onPress={handleNext}
-      />
+      />  
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+
   container: {
     flex: 1,
     flexDirection: "column",
+    backgroundColor:"black",
     alignItems: "center",
     justifyContent: "center",
     textAlign: "center",
-    marginBottom: "20%",
+    // marginBottom: "20%",
   },
   image: {
     height: 170,
@@ -87,7 +91,7 @@ const styles = StyleSheet.create({
   },
   nextButton: {
     position: "absolute",
-    top: "100%",
+    bottom:20,
     borderRadius: 5,
   },
 });

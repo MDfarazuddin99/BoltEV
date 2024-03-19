@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "ChargeEV",
+    "name": "BoltEV",
     "slug": "test",
     "version": "1.0.0",
     "orientation": "portrait",
@@ -17,7 +17,7 @@
     "assetBundlePatterns": ["**/*"],
     "ios": {
       "supportsTablet": false,
-      "bundleIdentifier": "ChargeEV",
+      "bundleIdentifier": "BoltEV",
       "config": {
         "googleMapsApiKey": "AIzaSyDF8ECR3O5QiEaTRLms1fmu5HRW_K_G_xM"
       },

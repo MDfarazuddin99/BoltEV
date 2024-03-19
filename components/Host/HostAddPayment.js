@@ -41,6 +41,7 @@ export default function HostAddPayment({ navigation, route }) {
         width: "100%",
         overflow: "hidden",
         alignItems: "center",
+        backgroundColor:"#000000",
       }}
     >
       {/* Back Button */}
@@ -90,7 +91,7 @@ export default function HostAddPayment({ navigation, route }) {
             disabled={false}
             color={verified ? "#1BB530" : undefined}
           />
-          <Text style={{ fontFamily: "Inter-Regular", fontSize: 17 }}>
+          <Text style={{ fontFamily: "Inter-Regular", fontSize: 17, color:"white" }}>
             I have done the above
           </Text>
         </View>
@@ -137,6 +138,7 @@ const styles = StyleSheet.create({
   item: {
     fontFamily: "Inter-Regular",
     fontSize: 17,
+    color:"white",
     marginBottom: "2%",
   },
   backButton: {

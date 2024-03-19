@@ -70,7 +70,7 @@ export default function Profile({ navigation }) {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: "#000000"}}>
       <SafeAreaView style={styles.container}>
         <View style={styles.userInfoSection}>
           <View
@@ -98,6 +98,7 @@ export default function Profile({ navigation }) {
                   {
                     marginTop: 15,
                     marginBottom: 5,
+                    color:"white"
                   },
                 ]}
               >
@@ -109,7 +110,7 @@ export default function Profile({ navigation }) {
                   style={{ width: 15, height: 15 }}
                 />
                 <Text style={{ fontSize: 14, color: "gray" }}>
-                  ChargeEV{" "}
+                  Bolt{" "}
                   {userData != null && userData.data().hostID != undefined
                     ? "Host"
                     : "User"}
