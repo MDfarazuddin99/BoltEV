@@ -16,16 +16,6 @@ const firebaseConfig = {
   appId: "1:804461707692:web:db3c29e2d1a4012e353a09",
 };
 
-// const firebaseConfig = {
-//   apiKey: "AIzaSyBapEe4dy9qdlLnDI6T9XSOJwoi-fVdSJQ",
-//   authDomain: "boltev-e7b07.firebaseapp.com",
-//   projectId: "boltev-e7b07",
-//   storageBucket: "boltev-e7b07.appspot.com",
-//   messagingSenderId: "1050679622789",
-//   appId: "1:1050679622789:web:842f4198ff4d1522d3fdec",
-//   measurementId: "G-7YJ8S98P7Y"
-// };
-
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const authentication = getAuth(app);
