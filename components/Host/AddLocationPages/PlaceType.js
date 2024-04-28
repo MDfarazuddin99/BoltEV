@@ -24,15 +24,16 @@ export default function PlaceType({ locationType, setLocationType }) {
   return (
     <SafeAreaView style={styles.container}>
       <SelectionHosting
-        selectionTitle="Apartment"
+        selectionTitle={<Text style={styles.text}>Apartment</Text>}
         iconName="apartment"
         selected={selectApartment}
         setSelected={setSelectApartment}
       />
-      <View style={{ margin: "2%" }} />
+      <View style={{ margin: "2%"}} />
       <SelectionHosting
-        selectionTitle="Landed Housing"
+        selectionTitle={<Text style={styles.text}>Landed Housing</Text>}
         iconName="home"
+        
         selected={selectLanded}
         setSelected={setSelectLanded}
       />
@@ -48,4 +49,7 @@ const styles = StyleSheet.create({
     justifyContent: "flex-start",
     alignItems: "center",
   },
+  text: {
+    color:"white",
+  }
 });

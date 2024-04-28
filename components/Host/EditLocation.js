@@ -31,7 +31,6 @@ import * as ImagePicker from "expo-image-picker";
 import { uploadImage } from "../resources/uploadImage";
 import { geohashForLocation } from "geofire-common";
 import * as Location from "expo-location";
-import { battutaMedunesAPIKey } from "../../firebase/firebase-config";
 
 export default function EditLocation({ navigation, route }) {
   const { id, currImage, currAddress, hostID } = route.params;
@@ -61,31 +60,35 @@ export default function EditLocation({ navigation, route }) {
 
   // make a reqeust to api to get all the states from a given country
   async function getStates(countryCode) {
-    if (countryCode == "") {
+    if (countryCode === "") {
       setCity("");
       return;
-    }
-    await fetch(
-      "https://battuta.medunes.net/api/region/" +
-        countryCode +
-        "/all/?key=" +
-        battutaMedunesAPIKey
-    )
-      .catch((err) => console.log(err))
-      .then((response) => response.json())
-      .then((data) => {
-        let check = city == "";
-        setStates(
-          data.map((x) => {
-            check = check || x.region == city;
-            return {
-              label: x.region,
-              value: x.region,
-            };
-          })
-        );
+    } 
+    setLoading(true);
+    const url = `https://countriesnow.space/api/v0.1/countries/states`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      //console.log(countryCode)
+    
+      if (!data.error) {
+        //console.log(countryCode)
+        let check = city === "";
+        const selectedCountry = data.data.find(country => country.name === countryCode);
+        if (selectedCountry) {
+          const stateNames = selectedCountry.states.map(state => state.name);
+          setStates(stateNames.map(name => ({ label: name, value: name })));
+        } else {
+          setStates([]);
+        }
         if (!check) setCity("");
-      });
+      } else {
+        console.log("Error: Unable to fetch data");
+      }
+    } catch (error) {
+      console.log("Error:", error);
+    }
+    setLoading(false);
   }
 
   // Driver function

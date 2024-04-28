@@ -48,8 +48,8 @@ export default function Login({ navigation }) {
           }}
         >
           <View style={styles.titleContainer}>
-            <Text h1>Login</Text>
-            <Text h2>Login to your ChargeEV account</Text>
+            <Text h1 style={{color:"white"}}>Login</Text>
+            <Text h2 h1 style={{color:"white"}}>Login to your BoltEV account</Text>
             <Text h4 style={{ color: "red", marginTop: 10, marginBottom: 10 }}>
               {invalidAccount ? "Invalid Password Or Email" : ""}
             </Text>
@@ -71,7 +71,7 @@ export default function Login({ navigation }) {
             containerStyle={{ marginTop: 10 }}
             onPress={handleLogin}
           ></Button>
-          <Text h4 style={{ marginTop: 20 }}>
+          <Text h4 style={{ marginTop: 20, color:"white" }}>
             Don't have an account?{" "}
             <Text
               style={{ color: "#1BB530", textDecorationLine: "underline" }}
@@ -80,7 +80,7 @@ export default function Login({ navigation }) {
               Register
             </Text>
           </Text>
-          <Text h4 style={{ marginTop: 30 }}>
+          <Text h4 style={{ marginTop: 30, color:"white" }}>
             Forgot password?{" "}
             <Text
               style={{ color: "red", textDecorationLine: "underline" }}
@@ -98,6 +98,7 @@ export default function Login({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor:"#000000",
     background:
       "linear-gradient(225deg, #FFFFFF 0%, #EFF1F5 100%, #EFF1F5 100%)",
     padding: "5%",

@@ -25,7 +25,7 @@ export default function Profile({ navigation }) {
 
   const options = {
     message:
-      "Hey there!\n\nHave you heard of the newest EV app in town? \n\nChargeEV is an app enabling you to loan or rent Electric vehicle chargers.\nNever run out of juice again\n\nDownload it now!",
+      "Hey there!\n\nHave you heard of the newest EV app in town? \n\nBoltEV is an app enabling you to loan or rent Electric vehicle chargers.\nNever run out of juice again\n\nDownload it now!",
   };
 
   const onShare = async () => {
@@ -70,7 +70,7 @@ export default function Profile({ navigation }) {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={{backgroundColor: "#000000"}}>
       <SafeAreaView style={styles.container}>
         <View style={styles.userInfoSection}>
           <View
@@ -98,6 +98,7 @@ export default function Profile({ navigation }) {
                   {
                     marginTop: 15,
                     marginBottom: 5,
+                    color:"white"
                   },
                 ]}
               >
@@ -109,7 +110,7 @@ export default function Profile({ navigation }) {
                   style={{ width: 15, height: 15 }}
                 />
                 <Text style={{ fontSize: 14, color: "gray" }}>
-                  ChargeEV{" "}
+                  Bolt{" "}
                   {userData != null && userData.data().hostID != undefined
                     ? "Host"
                     : "User"}

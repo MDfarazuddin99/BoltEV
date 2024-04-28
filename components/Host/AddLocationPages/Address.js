@@ -9,7 +9,6 @@ import { Text, Input, Button } from "@rneui/themed";
 import RNPickerSelect from "react-native-picker-select";
 import { DismissKeyboardView } from "../../resources/DismissKeyboardView";
 import { ScrollView } from "react-native-gesture-handler";
-import { battutaMedunesAPIKey } from "../../../firebase/firebase-config";
 
 export default function Address({
   country,
@@ -33,38 +32,71 @@ export default function Address({
     asyncFunc();
   }, [country]);
 
+  // async function getStates(countryCode) {
+  //   if (countryCode == "") {
+  //     setCity("");
+  //     return;
+  //   } else if (countryCode == "SG") {
+  //     setStates([{ label: "Singapore", value: "Singapore" }]);
+  //     return;
+  //   }
+  //   setLoading(true);
+  //   await fetch(
+  //     "https://battuta.medunes.net/api/region/" +
+  //       countryCode +
+  //       "/all/?key=" +
+  //       battutaMedunesAPIKey
+  //   )
+  //     .catch((err) => console.log(err))
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       let check = city == "";
+  //       setStates(
+  //         data.map((x) => {
+  //           check = check || x.region == city;
+  //           return {
+  //             label: x.region,
+  //             value: x.region,
+  //           };
+  //         })
+  //       );
+  //       if (!check) setCity("");
+  //     });
+  //   setLoading(false);
+  // }
+
   async function getStates(countryCode) {
-    if (countryCode == "") {
+    if (countryCode === "") {
       setCity("");
       return;
-    } else if (countryCode == "SG") {
-      setStates([{ label: "Singapore", value: "Singapore" }]);
-      return;
-    }
+    } 
     setLoading(true);
-    await fetch(
-      "https://battuta.medunes.net/api/region/" +
-        countryCode +
-        "/all/?key=" +
-        battutaMedunesAPIKey
-    )
-      .catch((err) => console.log(err))
-      .then((response) => response.json())
-      .then((data) => {
-        let check = city == "";
-        setStates(
-          data.map((x) => {
-            check = check || x.region == city;
-            return {
-              label: x.region,
-              value: x.region,
-            };
-          })
-        );
+    const url = `https://countriesnow.space/api/v0.1/countries/states`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      //console.log(countryCode)
+    
+      if (!data.error) {
+        //console.log(countryCode)
+        let check = city === "";
+        const selectedCountry = data.data.find(country => country.name === countryCode);
+        if (selectedCountry) {
+          const stateNames = selectedCountry.states.map(state => state.name);
+          setStates(stateNames.map(name => ({ label: name, value: name })));
+        } else {
+          setStates([]);
+        }
         if (!check) setCity("");
-      });
+      } else {
+        console.log("Error: Unable to fetch data");
+      }
+    } catch (error) {
+      console.log("Error:", error);
+    }
     setLoading(false);
   }
+  
 
   return (
     <KeyboardAvoidingView
@@ -91,8 +123,7 @@ export default function Address({
             }}
             value={country}
             items={[
-              { label: "United States", value: "US" },
-              { label: "Singapore", value: "SG" },
+              { label: "United States", value: "United States" },
             ]}
             style={{
               ...pickerSelectStyles,

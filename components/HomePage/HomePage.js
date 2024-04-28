@@ -1,4 +1,4 @@
-import { React, useState, useEffect } from "react";
+import {React, useState, useEffect} from "react";
 import { SafeAreaView, StyleSheet, View, ImageBackground } from "react-native";
 import { Text, Button, Divider, Image } from "@rneui/themed";
 import { authentication, firestore } from "../../firebase/firebase-config";
@@ -31,7 +31,10 @@ export default function Homepage({ navigation }) {
   }, [navigation]);
 
   return (
-    <SafeAreaView>
+    <SafeAreaView  
+        style={{
+          backgroundColor: "#000000"
+        }}>
       <View
         style={{
           flexDirection: "row",
@@ -58,7 +61,7 @@ export default function Homepage({ navigation }) {
             h1Style={{ fontSize: 35, color: "#1BB530", textAlign: "center" }}
           >
             Hi,{" "}
-            <Text h1 h1Style={{ fontSize: 35, color: "black" }}>
+            <Text h1 h1Style={{ fontSize: 35, color: "white" }}>
               {userData != null
                 ? userData.get("fname")
                 : authentication.currentUser.displayName}
@@ -76,7 +79,7 @@ export default function Homepage({ navigation }) {
             Need A Charge?
           </Text>
         </View>
-        <Divider style={{ width: "95%", margin: "2%" }} color="black" />
+        <Divider style={{ width: "95%", margin: "2%" }} color="white" />
         <ScrollView
           horizontal={true}
           showsHorizontalScrollIndicator={false}
@@ -172,7 +175,7 @@ export default function Homepage({ navigation }) {
         >
           <ImageBackground
             source={{
-              url: "https://motoristprod.s3.amazonaws.com/uploads/redactor_rails/picture/data/6125/ev-charging-stations-in-shopping-malls-singapore-featured.jpeg",
+              uri: "https://motoristprod.s3.amazonaws.com/uploads/redactor_rails/picture/data/6125/ev-charging-stations-in-shopping-malls-singapore-featured.jpeg",
             }}
             style={{ height: 175, width: "100%", marginLeft: "2.5%" }}
             imageStyle={{ borderRadius: 20 }}
@@ -205,7 +208,7 @@ export default function Homepage({ navigation }) {
         >
           <ImageBackground
             source={{
-              url: "https://cleantechnica.com/files/2018/03/Toyota-Prius-Prime-garage-plugging-in.jpg",
+              uri: "https://motoristprod.s3.amazonaws.com/uploads/redactor_rails/picture/data/6125/ev-charging-stations-in-shopping-malls-singapore-featured.jpeg",
             }}
             style={{ height: 175, width: "100%", marginLeft: "2.5%" }}
             imageStyle={{ borderRadius: 20 }}
@@ -238,7 +241,7 @@ export default function Homepage({ navigation }) {
         >
           <ImageBackground
             source={{
-              url: "https://images.mktw.net/im-309602?width=1280&size=1.33333333",
+              uri: "https://images.mktw.net/im-309602?width=1280&size=1.33333333",
             }}
             style={{ height: 175, width: "100%", marginLeft: "2.5%" }}
             imageStyle={{ borderRadius: 20 }}
