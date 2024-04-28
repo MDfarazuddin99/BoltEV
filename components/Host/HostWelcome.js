@@ -44,7 +44,7 @@ export default function HostWelcome({ navigation }) {
             style={{ marginBottom: "2%" }}
           />
           <Text h1 h1Style={{ fontSize: 30, color: "white" }}>
-            ChargeEV Hosting
+            BoltEV Hosting
           </Text>
         </View>
       </LinearGradient>
@@ -58,7 +58,7 @@ export default function HostWelcome({ navigation }) {
             marginBottom: "2%",
           }}
         >
-          Hosting with ChargeEV
+          Hosting with BoltEV
         </Text>
         <Text
           h3
@@ -69,7 +69,7 @@ export default function HostWelcome({ navigation }) {
           }}
           style={{ maxWidth: "80%" }}
         >
-          Welcome to ChargeEV Hosting. Be part of our extensive EV charger
+          Welcome to BoltEV Hosting. Be part of our extensive EV charger
           network today!
         </Text>
       </View>

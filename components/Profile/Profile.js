@@ -25,7 +25,7 @@ export default function Profile({ navigation }) {
 
   const options = {
     message:
-      "Hey there!\n\nHave you heard of the newest EV app in town? \n\nChargeEV is an app enabling you to loan or rent Electric vehicle chargers.\nNever run out of juice again\n\nDownload it now!",
+      "Hey there!\n\nHave you heard of the newest EV app in town? \n\nBoltEV is an app enabling you to loan or rent Electric vehicle chargers.\nNever run out of juice again\n\nDownload it now!",
   };
 
   const onShare = async () => {

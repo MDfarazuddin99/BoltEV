@@ -15,7 +15,7 @@ export default function ChargeMapLocationBox({ location, onPress }) {
       {/* Rendering images burn through Firestore bandwidth */}
       <Image
         source={{
-          url:
+          uri:
             location.type == "ChargeEV"
               ? location.locationImage
               : publicImageURL,
