@@ -27,7 +27,7 @@ export default function SelectionHosting({
   const textAnim = useRef(new Animated.Value(0)).current;
   const textSelectionAnim = textAnim.interpolate({
     inputRange: [0, 100],
-    outputRange: ["rgba(0,0,0,1)", "rgba(255, 255, 255, 1)"],
+    outputRange: ["rgba(150,150,150,150)", "rgba(255, 255, 255, 1)"],
   });
   const iconAnim = useRef(new Animated.Value(1)).current;
 

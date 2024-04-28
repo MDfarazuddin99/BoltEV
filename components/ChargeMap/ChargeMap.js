@@ -391,43 +391,45 @@ export default function ChargeMap({ navigation }) {
 
   // Gets public chargers in a 50km radius
   const getPublicChargers = async (currLocation) => {
-    return await fetch(
-      "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=charger&location=" +
-        currLocation[0] +
-        "," +
-        currLocation[1] +
-        "&radius=50000&key=" +
-        googleMapsAPIKey
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        const allLoc = data.results.filter(
-          (x) =>
-            x.business_status == "OPERATIONAL" &&
-            x.opening_hours != undefined &&
-            x.opening_hours.open_now
-        );
-        const res = allLoc.map((x) => {
-          return {
-            ...x,
-            distance:
-              distanceBetween(
-                [x.geometry.location.lat, x.geometry.location.lng],
-                currLocation.slice(0, 2)
-              ) * 1000,
-            type: "Public",
-            coords: {
-              latitude: x.geometry.location.lat,
-              longitude: x.geometry.location.lng,
-            },
-          };
-        });
-        return res;
+    const url = `https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=EV%20charging%20station&location=${currLocation[0]},${currLocation[1]}&radius=50000&key=${googleMapsAPIKey}`;
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      console.log("Full Data: ", data);
+  
+      if (data.results.length === 0) {
+        console.log('No results found');
+        return [];
+      }
+  
+      // Logging each result to inspect structure
+      data.results.forEach(result => console.log(result));
+  
+      const allLoc = data.results.filter(x => x.business_status === "OPERATIONAL" && x.opening_hours && x.opening_hours.open_now);
+      console.log('Filtered Public Locations: ', allLoc);
+  
+      const res = allLoc.map(x => {
+        const { lat, lng } = x.geometry.location;
+        console.log("Charge Station: ", x);
+        return {
+          ...x,
+          distance: distanceBetween([lat, lng], [currLocation[0], currLocation[1]]) * 1000,
+          type: "Public",
+          coords: { latitude: lat, longitude: lng },
+        };
       });
+      return res;
+    } catch (error) {
+      console.error("Failed to fetch public chargers: ", error);
+      return [];
+    }
   };
+  
+  
 
   // Get public and ChargeEV chargers in a 50km radius
   const getChargers = async (currLocation) => {
+    console.log('Curren Location: ', currLocation)
     const loc = [];
     setSortOption("Nearest");
     setFilterCharger("");
