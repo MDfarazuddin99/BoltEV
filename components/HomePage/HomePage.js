@@ -208,7 +208,7 @@ export default function Homepage({ navigation }) {
         >
           <ImageBackground
             source={{
-              uri: "https://drive.google.com/file/d/1UQ6Vn78guIh_X4SEtDCuQNiLJRB6wniv/view?usp=sharing",
+              uri: "https://motoristprod.s3.amazonaws.com/uploads/redactor_rails/picture/data/6125/ev-charging-stations-in-shopping-malls-singapore-featured.jpeg",
             }}
             style={{ height: 175, width: "100%", marginLeft: "2.5%" }}
             imageStyle={{ borderRadius: 20 }}

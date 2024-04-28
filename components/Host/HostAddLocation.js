@@ -212,7 +212,8 @@ export default function HostAddLocation({ navigation }) {
         Location.reverseGeocodeAsync(coords[0]).then((locations) => {
           const check =
             locations[0].postalCode == postalCode &&
-            locations[0].isoCountryCode == country;
+            locations[0].country == country;
+          console.log(locations)
           if (check) {
             setCoords([coords[0].latitude, coords[0].longitude]);
             setLocationHash(
