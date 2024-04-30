@@ -9,6 +9,7 @@ import {
   Animated,
   Alert,
   Linking,
+  Platform,
 } from "react-native";
 import MapView, { Marker } from "react-native-maps";
 import * as Location from "expo-location";
@@ -395,7 +396,7 @@ export default function ChargeMap({ navigation }) {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      console.log("Full Data: ", data);
+      // console.log("Full Data: ", data);
   
       if (data.results.length === 0) {
         console.log('No results found');
@@ -406,11 +407,11 @@ export default function ChargeMap({ navigation }) {
       data.results.forEach(result => console.log(result));
   
       const allLoc = data.results.filter(x => x.business_status === "OPERATIONAL" && x.opening_hours && x.opening_hours.open_now);
-      console.log('Filtered Public Locations: ', allLoc);
+      // console.log('Filtered Public Locations: ', allLoc);
   
       const res = allLoc.map(x => {
         const { lat, lng } = x.geometry.location;
-        console.log("Charge Station: ", x);
+        // console.log("Charge Station: ", x);
         return {
           ...x,
           distance: distanceBetween([lat, lng], [currLocation[0], currLocation[1]]) * 1000,
@@ -559,99 +560,245 @@ export default function ChargeMap({ navigation }) {
   };
 
   // Select Filter
+  // const selectFilter = () => {
+  //   ActionSheetIOS.showActionSheetWithOptions(
+  //     {
+  //       options: ["Cancel", "Charger Type", "Clear Filters"],
+  //       destructiveButtonIndex: 2,
+  //       cancelButtonIndex: 0,
+  //       userInterfaceStyle: "light",
+  //     },
+  //     (index) => {
+  //       setSearching(true);
+  //       setChargerIndex(0);
+  //       if (index == 1)
+  //         ActionSheetIOS.showActionSheetWithOptions(
+  //           {
+  //             options: ["Cancel", "CCS2", "Type 2"],
+  //             cancelButtonIndex: 0,
+  //             userInterfaceStyle: "light",
+  //           },
+  //           (option) => {
+  //             if (option == 1) {
+  //               setLocations(
+  //                 originalLocations
+  //                   .filter(
+  //                     (x) =>
+  //                       x.chargerType != null && x.chargerType.includes("CCS2")
+  //                   )
+  //                   .sort(
+  //                     sortOption == "Nearest"
+  //                       ? (a, b) => a.distance > b.distance
+  //                       : (x, y) => {
+  //                           if (x.costPerCharge != y.costPerCharge)
+  //                             return x.costPerCharge > y.costPerCharge;
+  //                           else return x.distance > y.distance;
+  //                         }
+  //                   )
+  //               );
+  //               setFilterCharger("CCS2");
+  //             } else if (option == 2) {
+  //               setLocations(
+  //                 originalLocations
+  //                   .filter(
+  //                     (x) =>
+  //                       x.chargerType != null &&
+  //                       x.chargerType.includes("Type 2")
+  //                   )
+  //                   .sort(
+  //                     sortOption == "Nearest"
+  //                       ? (a, b) => a.distance > b.distance
+  //                       : (x, y) => {
+  //                           if (x.costPerCharge != y.costPerCharge)
+  //                             return x.costPerCharge > y.costPerCharge;
+  //                           else return x.distance > y.distance;
+  //                         }
+  //                   )
+  //               );
+  //               setFilterCharger("Type 2");
+  //             } else null;
+  //           }
+  //         );
+  //       else if (index == 2) {
+  //         if (sortOption == "Cheapest") sortCheapest(originalLocations);
+  //         else setLocations(originalLocations);
+  //         setFilterCharger("");
+  //       }
+  //       setSearching(false);
+  //     }
+  //   );
+  // };
   const selectFilter = () => {
-    ActionSheetIOS.showActionSheetWithOptions(
-      {
-        options: ["Cancel", "Charger Type", "Clear Filters"],
-        destructiveButtonIndex: 2,
-        cancelButtonIndex: 0,
-        userInterfaceStyle: "light",
-      },
-      (index) => {
-        setSearching(true);
-        setChargerIndex(0);
-        if (index == 1)
-          ActionSheetIOS.showActionSheetWithOptions(
-            {
-              options: ["Cancel", "CCS2", "Type 2"],
-              cancelButtonIndex: 0,
-              userInterfaceStyle: "light",
-            },
-            (option) => {
-              if (option == 1) {
-                setLocations(
-                  originalLocations
-                    .filter(
-                      (x) =>
-                        x.chargerType != null && x.chargerType.includes("CCS2")
-                    )
-                    .sort(
-                      sortOption == "Nearest"
-                        ? (a, b) => a.distance > b.distance
-                        : (x, y) => {
-                            if (x.costPerCharge != y.costPerCharge)
-                              return x.costPerCharge > y.costPerCharge;
-                            else return x.distance > y.distance;
-                          }
-                    )
-                );
-                setFilterCharger("CCS2");
-              } else if (option == 2) {
-                setLocations(
-                  originalLocations
-                    .filter(
-                      (x) =>
-                        x.chargerType != null &&
-                        x.chargerType.includes("Type 2")
-                    )
-                    .sort(
-                      sortOption == "Nearest"
-                        ? (a, b) => a.distance > b.distance
-                        : (x, y) => {
-                            if (x.costPerCharge != y.costPerCharge)
-                              return x.costPerCharge > y.costPerCharge;
-                            else return x.distance > y.distance;
-                          }
-                    )
-                );
-                setFilterCharger("Type 2");
-              } else null;
-            }
-          );
-        else if (index == 2) {
-          if (sortOption == "Cheapest") sortCheapest(originalLocations);
-          else setLocations(originalLocations);
-          setFilterCharger("");
+    if (Platform.OS === 'ios') {
+      // iOS: Using ActionSheetIOS
+      ActionSheetIOS.showActionSheetWithOptions(
+        {
+          options: ["Cancel", "Charger Type", "Clear Filters"],
+          destructiveButtonIndex: 2,
+          cancelButtonIndex: 0,
+          userInterfaceStyle: 'light',
+        },
+        (index) => {
+          setSearching(true);
+          setChargerIndex(0);
+  
+          if (index === 1) {
+            // Submenu for charger type selection on iOS
+            ActionSheetIOS.showActionSheetWithOptions(
+              {
+                options: ["Cancel", "CCS2", "Type 2"],
+                cancelButtonIndex: 0,
+                userInterfaceStyle: 'light',
+              },
+              (option) => {
+                // Implement your logic based on selection
+                handleChargerTypeSelection(option);
+              }
+            );
+          } else if (index === 2) {
+            // Clear filters
+            setLocations(originalLocations);
+            setFilterCharger("");
+          }
+          setSearching(false);
         }
-        setSearching(false);
-      }
-    );
+      );
+    } else {
+      // Android: Using Alert as a placeholder
+      Alert.alert(
+        "Select Filter",
+        "Choose the filter you want to apply",
+        [
+          {
+            text: "Cancel",
+            onPress: () => console.log('Cancel Pressed'),
+            style: "cancel"
+          },
+          {
+            text: "Charger Type",
+            onPress: () => {
+              // Submenu for charger type selection on Android
+              Alert.alert(
+                "Select Charger Type",
+                "Choose the type of charger",
+                [
+                  { text: "Cancel", onPress: () => console.log('Cancel Pressed'), style: "cancel" },
+                  { text: "CCS2", onPress: () => handleChargerTypeSelection(1) },
+                  { text: "Type 2", onPress: () => handleChargerTypeSelection(2) }
+                ],
+                { cancelable: true }
+              );
+            }
+          },
+          {
+            text: "Clear Filters",
+            onPress: () => {
+              setLocations(originalLocations);
+              setFilterCharger("");
+            },
+            style: "destructive"
+          }
+        ],
+        { cancelable: true }
+      );
+    }
   };
+  
+  // Helper function to handle charger type selection logic
+  function handleChargerTypeSelection(option) {
+    setSearching(true);
+    if (option === 1) {
+      setLocations(
+        originalLocations.filter(x => x.chargerType && x.chargerType.includes("CCS2"))
+        .sort(
+          (a, b) => sortOption === "Nearest" ? a.distance - b.distance : a.costPerCharge - b.costPerCharge
+        )
+      );
+      setFilterCharger("CCS2");
+    } else if (option === 2) {
+      setLocations(
+        originalLocations.filter(x => x.chargerType && x.chargerType.includes("Type 2"))
+        .sort(
+          (a, b) => sortOption === "Nearest" ? a.distance - b.distance : a.costPerCharge - b.costPerCharge
+        )
+      );
+      setFilterCharger("Type 2");
+    }
+    setSearching(false);
+  }
 
   // Select Sorting
+  // const selectSort = () => {
+  //   ActionSheetIOS.showActionSheetWithOptions(
+  //     {
+  //       options: ["Cancel", "Nearest", "Cheapest"],
+  //       cancelButtonIndex: 0,
+  //       userInterfaceStyle: "light",
+  //     },
+  //     (option) => {
+  //       setSearching(true);
+  //       if (option == 1) {
+  //         if (sortOption == "Nearest") return;
+  //         sortNearest(locations);
+  //         setSortOption("Nearest");
+  //       } else if (option == 2) {
+  //         if (sortOption == "Cheapest") return;
+  //         sortCheapest(locations);
+  //         setSortOption("Cheapest");
+  //       }
+  //       setSearching(false);
+  //     }
+  //   );
+  // };
   const selectSort = () => {
-    ActionSheetIOS.showActionSheetWithOptions(
-      {
-        options: ["Cancel", "Nearest", "Cheapest"],
-        cancelButtonIndex: 0,
-        userInterfaceStyle: "light",
-      },
-      (option) => {
-        setSearching(true);
-        if (option == 1) {
-          if (sortOption == "Nearest") return;
-          sortNearest(locations);
-          setSortOption("Nearest");
-        } else if (option == 2) {
-          if (sortOption == "Cheapest") return;
-          sortCheapest(locations);
-          setSortOption("Cheapest");
+    const handleSortSelection = (option) => {
+      setSearching(true);
+      if (option === 1) { // Nearest
+        if (sortOption === "Nearest") {
+          setSearching(false);
+          return;
         }
-        setSearching(false);
+        sortNearest(locations);
+        setSortOption("Nearest");
+      } else if (option === 2) { // Cheapest
+        if (sortOption === "Cheapest") {
+          setSearching(false);
+          return;
+        }
+        sortCheapest(locations);
+        setSortOption("Cheapest");
       }
-    );
+      setSearching(false);
+    };
+  
+    if (Platform.OS === 'ios') {
+      // iOS: Using ActionSheetIOS
+      ActionSheetIOS.showActionSheetWithOptions(
+        {
+          options: ["Cancel", "Nearest", "Cheapest"],
+          cancelButtonIndex: 0,
+          userInterfaceStyle: 'light',
+        },
+        buttonIndex => {
+          if (buttonIndex !== 0) { // Exclude Cancel option
+            handleSortSelection(buttonIndex);
+          }
+        }
+      );
+    } else {
+      // Android: Using Alert
+      Alert.alert(
+        "Select Sorting Method",
+        "Choose how you want to sort the locations",
+        [
+          { text: "Cancel", style: "cancel" },
+          { text: "Nearest", onPress: () => handleSortSelection(1) },
+          { text: "Cheapest", onPress: () => handleSortSelection(2) }
+        ],
+        { cancelable: true }
+      );
+    }
   };
-
   // Sort given locations by nearest
   const sortNearest = () => {
     const locationsCopy = [...locations];

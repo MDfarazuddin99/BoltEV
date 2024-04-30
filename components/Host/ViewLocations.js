@@ -95,7 +95,7 @@ export default function ViewLocations({ navigation }) {
               <ImageBackground
                 resizeMode="cover"
                 source={{
-                  url: x.image,
+                  uri: x.image,
                 }}
                 style={styles.bgImage}
                 imageStyle={{ borderRadius: 10 }}
