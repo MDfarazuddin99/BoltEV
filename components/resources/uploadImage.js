@@ -8,7 +8,7 @@ import {
 
 // Upload Image
 export const uploadImage = async (image) => {
-  console.log("uploading image")
+  console.log("uploading image", image)
   if (image == null) return null;
   const uploadUri = image;
   let filename = uploadUri.substring(uploadUri.lastIndexOf("/") + 1);
@@ -35,6 +35,7 @@ export const uploadImage = async (image) => {
   try {
     await task;
     const url = await getDownloadURL(storageRef);
+    console.log('image url', url)
     return url;
   } catch (e) {
     console.log(e);

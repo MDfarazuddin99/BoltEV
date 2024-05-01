@@ -17,6 +17,7 @@ export default function Homepage({ navigation }) {
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
       setUserData(docSnap);
+      // console.log("userData: ", docSnap)
     } else {
       // doc.data() will be undefined in this case
       console.log("No such document!");

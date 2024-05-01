@@ -46,9 +46,9 @@ export default function HostAlert({ data, onPress, refresh }) {
   return data.actionRequired || data.action ? (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       {data.stage == "booked" ? (
-        <Icon name="book" size={50} />
+        <Icon name="book" size={50} color='#1BB530' />
       ) : (
-        <Icon name="warning" size={50} />
+        <Icon name="warning" size={50} color='#1BB530'/>
       )}
       <View style={{ maxWidth: "70%" }}>
         <Text
@@ -56,24 +56,25 @@ export default function HostAlert({ data, onPress, refresh }) {
             fontFamily: "Inter-Bold",
             fontSize: 20,
             marginBottom: "2%",
+            color:'#1BB530' 
           }}
         >
           {data.stage == "booked" ? statusTotitle.booked : statusTotitle.paid}
         </Text>
-        <Text style={{ fontFamily: "Inter-Regular", fontSize: 17 }}>
+        <Text style={{ fontFamily: "Inter-Regular", fontSize: 17 , color:'#1BB530' }}>
           {data.stage == "booked"
             ? statusTosubtitle.booked
             : statusTosubtitle.paid}
         </Text>
       </View>
-      <Icon name="arrow-forward-ios" />
+      <Icon name="arrow-forward-ios"  color='#1BB530'/>
     </TouchableOpacity>
   ) : (
     <View style={styles.container}>
       {data.stage == "arrived" ? (
-        <Icon name="drive-eta" size={50} />
+        <Icon name="drive-eta" size={50} color='#1BB530' />
       ) : (
-        <Icon name="cancel" size={50} />
+        <Icon name="cancel" size={50} color='#1BB530' />
       )}
       <View style={{ maxWidth: "70%" }}>
         <Text
@@ -81,13 +82,14 @@ export default function HostAlert({ data, onPress, refresh }) {
             fontFamily: "Inter-Bold",
             fontSize: 20,
             marginBottom: "2%",
+            color:'#1BB530' 
           }}
         >
           {data.stage == "arrived"
             ? statusTotitle.arrived
             : statusTotitle.cancelled}
         </Text>
-        <Text style={{ fontFamily: "Inter-Regular", fontSize: 17 }}>
+        <Text style={{ fontFamily: "Inter-Regular", fontSize: 17, color:'#1BB530' }}>
           {data.stage == "arrived"
             ? statusTosubtitle.arrived
             : statusTosubtitle.cancelled}

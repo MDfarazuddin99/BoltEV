@@ -40,66 +40,66 @@ const EditProfile = ({ navigation }) => {
   const [phone, setPhone] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const uploadImage = async () => {
-    console.log("Starting upload");
-    console.log(image);
-    if (image == null) {
-      console.log("No image uploaded");
-      return null;
-    }
-    const uploadUri = image;
-    console.log("Uploading image");
-    console.log(image);
-    let filename = uploadUri.substring(uploadUri.lastIndexOf("/") + 1);
+  // const uploadImage = async () => {
+  //   console.log("Starting upload");
+  //   console.log(image);
+  //   if (image == null) {
+  //     console.log("No image uploaded");
+  //     return null;
+  //   }
+  //   const uploadUri = image;
+  //   console.log("Uploading image");
+  //   console.log("Image",image);
+  //   let filename = uploadUri.substring(uploadUri.lastIndexOf("/") + 1);
 
-    // Add timestamp to File Name
-    const extension = filename.split(".").pop();
-    const name = filename.split(".").slice(0, -1).join(".");
-    filename = name + Date.now() + "." + extension;
+  //   // Add timestamp to File Name
+  //   const extension = filename.split(".").pop();
+  //   const name = filename.split(".").slice(0, -1).join(".");
+  //   filename = name + Date.now() + "." + extension;
 
-    setUploading(true);
-    setTransferred(0);
+  //   setUploading(true);
+  //   setTransferred(0);
 
-    const storage = getStorage();
-    const storageRef = ref(storage, `photos/${filename}`);
+  //   const storage = getStorage();
+  //   const storageRef = ref(storage, `photos/${filename}`);
 
-    let uri = image;
-    const blob = await new Promise((resolve, reject) => {
-      const xhr = new XMLHttpRequest();
-      xhr.onload = function () {
-        resolve(xhr.response);
-      };
-      xhr.onerror = function (e) {
-        console.log(e);
-        reject(new TypeError("Network request failed"));
-      };
-      xhr.responseType = "blob";
-      xhr.open("GET", uri, true);
-      xhr.send(null);
-    });
+  //   let uri = image;
+  //   const blob = await new Promise((resolve, reject) => {
+  //     const xhr = new XMLHttpRequest();
+  //     xhr.onload = function () {
+  //       resolve(xhr.response);
+  //     };
+  //     xhr.onerror = function (e) {
+  //       // console.log(e);
+  //       reject(new TypeError("Network request failed"));
+  //     };
+  //     xhr.responseType = "blob";
+  //     xhr.open("GET", uri, true);
+  //     xhr.send(null);
+  //   });
 
-    const task = uploadBytesResumable(storageRef, blob).then((snapshot) => {
-      console.log("Uploaded a blob or file!");
-    });
+  //   const task = uploadBytesResumable(storageRef, blob).then((snapshot) => {
+  //     console.log("Uploaded a blob or file!");
+  //   });
 
-    try {
-      await task;
+  //   try {
+  //     await task;
 
-      const url = await getDownloadURL(storageRef);
+  //     const url = await getDownloadURL(storageRef);
 
-      setUploading(false);
-      setImage(null);
+  //     setUploading(false);
+  //     setImage(null);
 
-      // Alert.alert(
-      //   'Image uploaded!',
-      //   'Your image has been uploaded to the Firebase Cloud Storage Successfully!',
-      // );
-      return url;
-    } catch (e) {
-      console.log(e);
-      return null;
-    }
-  };
+  //     Alert.alert(
+  //       'Image uploaded!',
+  //       'Your image has been uploaded to the Firebase Cloud Storage Successfully!',
+  //     );
+  //     return url;
+  //   } catch (e) {
+  //     console.log(e);
+  //     return null;
+  //   }
+  // };
 
   const getUser = async () => {
     const docRef = doc(firestore, "users", authentication.currentUser.uid);
@@ -178,7 +178,7 @@ const EditProfile = ({ navigation }) => {
     const result = await ImagePicker.launchImageLibraryAsync();
 
     // Explore the result
-    console.log(result);
+    // console.log(result);
 
     if (!result.cancelled) {
       setImage(result.uri);

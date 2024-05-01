@@ -3,14 +3,14 @@ import { StyleSheet, TouchableOpacity, Image, View } from "react-native";
 import { Text, Divider } from "@rneui/themed";
 
 export default function ChargeMapLocationBox({ location, onPress }) {
-  console.log(location)
+  // console.log(location)
   const publicImageURL =
     location.photos != undefined
       ? "https://maps.googleapis.com/maps/api/place/photo?photoreference=" +
         location.photos[0].photo_reference +
         "&sensor=false&maxheight=1600&maxwidth=1600&key=AIzaSyDF8ECR3O5QiEaTRLms1fmu5HRW_K_G_xM"
       : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg";
-    console.log("Image: ", publicImageURL)
+    // console.log("Image: ", publicImageURL)
   return (
     <TouchableOpacity style={styles.locationBox} onPress={onPress}>
       {/* Remove "" in image source when deploy */}
@@ -22,7 +22,7 @@ export default function ChargeMapLocationBox({ location, onPress }) {
               ? location.locationImage
               : publicImageURL,
         }}
-        onError={(e) => console.error("Failed to load image:", e.nativeEvent.error)}
+        // onError={(e) => console.error("Failed to load image:", e.nativeEvent.error)}
         style={styles.image}
       />
       <View style={{ width: "50%" }}>

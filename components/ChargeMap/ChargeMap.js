@@ -404,7 +404,7 @@ export default function ChargeMap({ navigation }) {
       }
   
       // Logging each result to inspect structure
-      data.results.forEach(result => console.log(result));
+      // data.results.forEach(result => console.log(result));
   
       const allLoc = data.results.filter(x => x.business_status === "OPERATIONAL" && x.opening_hours && x.opening_hours.open_now);
       // console.log('Filtered Public Locations: ', allLoc);
@@ -1154,7 +1154,7 @@ export default function ChargeMap({ navigation }) {
         <Text
           h3
           h3Style={{ fontSize: 17 }}
-          style={{ textAlign: "center", color: "gray", marginTop: "2%" }}
+          style={{ textAlign: "center", color: "grey", marginTop: "2%" }}
         >
           There are no charger locations near you.
         </Text>
@@ -1371,7 +1371,7 @@ export default function ChargeMap({ navigation }) {
           }}
         >
           <TouchableOpacity
-            style={[styles.bookButton, { backgroundColor: "gray" }]}
+            style={[styles.bookButton, { backgroundColor: "grey" }]}
             onPress={otherLocations}
           >
             <Icon name="arrow-back-ios" color="white" />
@@ -1606,7 +1606,7 @@ export default function ChargeMap({ navigation }) {
             </View>
             <View
               style={{
-                backgroundColor: "black",
+                // backgroundColor: "black",
                 width: 300,
                 height: "0.3%",
                 marginTop: "2%",
@@ -1748,7 +1748,7 @@ export default function ChargeMap({ navigation }) {
                   styles.bookButton,
                   {
                     padding: "1%",
-                    backgroundColor: "#ff4a4a",
+                    // backgroundColor: "#ff4a4a",
                     borderRadius: 5,
                     width: "45%",
                   },
@@ -1844,7 +1844,7 @@ const styles = StyleSheet.create({
   textGreyed: {
     fontFamily: "Inter-Light",
     fontSize: 12,
-    color: "gray",
+    color: "grey",
   },
   loadingImage: {
     width: 313.6,
@@ -1918,7 +1918,7 @@ const styles = StyleSheet.create({
   extraInfoParentContainer: {
     width: 300,
     paddingBottom: "10%",
-    backgroundColor:"#000000",
+    backgroundColor:"white",
     marginTop: "5%",
   },
   infoContainer: {

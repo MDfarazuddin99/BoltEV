@@ -229,6 +229,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
+    marginTop:'25%',
     display: "flex",
     background:
       "linear-gradient(225deg, #FFFFFF 0%, #EFF1F5 100%, #EFF1F5 100%)",

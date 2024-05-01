@@ -336,7 +336,7 @@ export default function EditLocation({ navigation, route }) {
         <Icon name="arrow-back-ios" />
       </TouchableOpacity>
       <ImageBackground
-        source={{ url: image }}
+        source={{ uri: image }}
         style={styles.image}
         blurRadius={1}
       >
@@ -632,7 +632,8 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   content: {
-    marginTop: "5%",
+    paddingTop: "5%",
+    backgroundColor:'black'
   },
   priceContainer: {
     width: "100%",

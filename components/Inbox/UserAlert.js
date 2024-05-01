@@ -45,21 +45,23 @@ export default function UserAlert({ data, onPress, refresh }) {
   return data.actionRequired || data.action ? (
     <TouchableOpacity style={styles.container} onPress={onPress}>
       {data.stage == "booked" ? (
-        <Icon name="book" size={50} />
+        <Icon name="book" size={50} color='#1BB530'/>
       ) : (
-        <Icon name="warning" size={50} />
+        <Icon name="warning" size={50} color = '#1BB530'  />
       )}
       <View style={{ maxWidth: "70%" }}>
         <Text
           style={{
+            
             fontFamily: "Inter-Bold",
             fontSize: 20,
             marginBottom: "2%",
+            color:'#1BB530' 
           }}
         >
           {data.stage == "booked" ? statusTotitle.booked : statusTotitle.paid}
         </Text>
-        <Text style={{ fontFamily: "Inter-Regular", fontSize: 17 }}>
+        <Text style={{ fontFamily: "Inter-Regular", fontSize: 17, color:'#1BB530'  }}>
           {data.stage == "booked"
             ? statusTosubtitle.booked
             : statusTosubtitle.paid}
@@ -105,11 +107,13 @@ export default function UserAlert({ data, onPress, refresh }) {
 
 const styles = StyleSheet.create({
   container: {
+    padding:'1%',
+    backgroundColor:'blue',
     width: "100%",
     display: "flex",
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    marginTop: "10%",
+    marginTop: "5%",
   },
 });
