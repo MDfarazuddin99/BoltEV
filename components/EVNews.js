@@ -68,7 +68,7 @@ export default function EVNews({ navigation }) {
                   onPress={() => Linking.openURL(x.url)}
                 >
                   <Image
-                    source={{ url: x.urlToImage }}
+                    source={{ uri: x.urlToImage }}
                     style={{ width: 150, height: 100, borderRadius: 10 }}
                   />
                   <View

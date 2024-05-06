@@ -404,7 +404,7 @@ export default function ChargeMap({ navigation }) {
       }
   
       // Logging each result to inspect structure
-      // data.results.forEach(result => console.log(result));
+      data.results.forEach(result => console.log(result));
   
       const allLoc = data.results.filter(x => x.business_status === "OPERATIONAL" && x.opening_hours && x.opening_hours.open_now);
       // console.log('Filtered Public Locations: ', allLoc);
@@ -1224,7 +1224,7 @@ export default function ChargeMap({ navigation }) {
         <View style={styles.reviewsContainer}>
           <Image
             source={{
-              url:
+              uri:
                 locations[0].type == "ChargeEV"
                   ? locations[0].hostDP == undefined
                     ? "https://firebasestorage.googleapis.com/v0/b/chargeev-986bd.appspot.com/o/photos%2F149071.png?alt=media&token=509b42b3-27ab-452f-a3e8-8c0e93fcb229"
@@ -1352,7 +1352,7 @@ export default function ChargeMap({ navigation }) {
                 textAlign: "center",
               }}
             >
-              This location is a public location. ChargeEV does not have any
+              This location is a public location. BoltEV does not have any
               information of pricing, charger types provided and availability.
               Booking of this location will not be recorded.
             </Text>

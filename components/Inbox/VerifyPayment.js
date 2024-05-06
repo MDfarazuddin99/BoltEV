@@ -93,7 +93,7 @@ export default function VerifyPayment({ navigation, route }) {
             width: "65%",
           }}
         >
-          <Image source={{ url: userDP }} style={{ width: 75, height: 75 }} />
+          <Image source={{ uri: userDP }} style={{ width: 75, height: 75 }} />
           <Text h2 h2Style={{ fontSize: 25 }}>
             {userDisplayName}
           </Text>

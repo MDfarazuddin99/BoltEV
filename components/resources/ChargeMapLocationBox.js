@@ -8,9 +8,9 @@ export default function ChargeMapLocationBox({ location, onPress }) {
     location.photos != undefined
       ? "https://maps.googleapis.com/maps/api/place/photo?photoreference=" +
         location.photos[0].photo_reference +
-        "&sensor=false&maxheight=1600&maxwidth=1600&key=AIzaSyDF8ECR3O5QiEaTRLms1fmu5HRW_K_G_xM"
+        "&sensor=false&maxheight=1600&maxwidth=1600&key=AIzaSyAnL6me3kIi2CBnb60M6k0hEl1VKApgT5M"
       : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg";
-    // console.log("Image: ", publicImageURL)
+    console.log("Image: ", publicImageURL)
   return (
     <TouchableOpacity style={styles.locationBox} onPress={onPress}>
       {/* Remove "" in image source when deploy */}
