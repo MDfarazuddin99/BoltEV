@@ -226,7 +226,7 @@ export default function EditLocation({ navigation, route }) {
 
   // Updates placeID when coords change
   useEffect(() => {
-    if (coords.length != 0) getPlaceID();
+    if (coords.length != 0) {getPlaceID()}
   }, [coords]);
 
   // Get placeID
@@ -336,7 +336,7 @@ export default function EditLocation({ navigation, route }) {
         <Icon name="arrow-back-ios" />
       </TouchableOpacity>
       <ImageBackground
-        source={{ url: image }}
+        source={{ uri: image }}
         style={styles.image}
         blurRadius={1}
       >

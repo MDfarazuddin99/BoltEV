@@ -254,7 +254,14 @@ export default function HostAddLocation({ navigation }) {
   // Uploade to firestore
   const uploadData = async () => {
     // Checks if there is a similar address in dataabse
-    const docSnap = await getDoc(doc(firestore, "HostedLocations", placeID));
+    
+    // const docSnap = await getDoc(doc(firestore, "HostedLocations", placeID))
+    
+    // if(placeID) {
+      const docSnap = await getDoc(doc(firestore, "HostedLocations", placeID));
+    // }else{
+      // console.err("placeId is not set");
+    // }
     if (docSnap.exists()) {
       Alert.alert("We already have that location in database!");
       return;

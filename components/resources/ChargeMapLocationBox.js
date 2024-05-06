@@ -7,21 +7,33 @@ export default function ChargeMapLocationBox({ location, onPress }) {
     location.photos != undefined
       ? "https://maps.googleapis.com/maps/api/place/photo?photoreference=" +
         location.photos[0].photo_reference +
-        "&sensor=false&maxheight=1600&maxwidth=1600&key=AIzaSyDF8ECR3O5QiEaTRLms1fmu5HRW_K_G_xM"
+        "&sensor=false&maxheight=1600&maxwidth=1600&key=AIzaSyAnL6me3kIi2CBnb60M6k0hEl1VKApgT5M"
       : "https://icon-library.com/images/no-image-icon/no-image-icon-0.jpg";
+  // const publicImageURL = "https://cyberswitching.com/wp-content/uploads/2022/06/Dual-Charger-scaled-e1656358174762.jpg";
+  const imgUrl = (location.type === "ChargeEV")? location.locationImage: publicImageURL;
+  //console.log(location);
   return (
     <TouchableOpacity style={styles.locationBox} onPress={onPress}>
       {/* Remove "" in image source when deploy */}
       {/* Rendering images burn through Firestore bandwidth */}
-      <Image
+      {/* <Image
         source={{
           url:
             location.type == "ChargeEV"
               ? location.locationImage
               : publicImageURL,
+            // "https://firebasestorage.googleapis.com/v0/b/boltev-7331e.appspot.com/o/photos%2F73568326-ba72-42ee-98b9-b58a1c75e23f1713904311950.jpg?alt=media&token=d23109c4-c217-434a-8652-3ffd5db0736e"
+        }}
+        // style={styles.image}
+        style={styles.image}
+        onError={() => console.log("Error loading image")}
+      /> */}
+      <Image
+        source={{
+          uri: imgUrl 
         }}
         style={styles.image}
-      />
+        />
       <View style={{ width: "50%" }}>
         <Text h4 h4Style={{ fontFamily: "Inter-Black", maxHeight: "40%", color:"white" }}>
           {location.type == "ChargeEV" ? location.address : location.name}

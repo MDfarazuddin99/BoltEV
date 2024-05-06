@@ -95,7 +95,7 @@ export default function ViewLocations({ navigation }) {
               <ImageBackground
                 resizeMode="cover"
                 source={{
-                  url: x.image,
+                  uri: x.image,
                 }}
                 style={styles.bgImage}
                 imageStyle={{ borderRadius: 10 }}
@@ -118,6 +118,7 @@ export default function ViewLocations({ navigation }) {
                 }}
                 style={{ maxWidth: "90%" }}
               >
+                {console.log(x.image)}
                 {x.address}
               </Text>
               <Icon name="arrow-forward-ios" color="white" />

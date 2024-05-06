@@ -1248,7 +1248,7 @@ export default function ChargeMap({ navigation }) {
   const FilterView = () => {
     return (
       <View style={styles.filterContainer}>
-        <TouchableOpacity style={styles.filterButton} onPress={selectFilter}>
+        {/* <TouchableOpacity style={styles.filterButton} onPress={selectFilter}>
           <Icon name="filter-list" color="white" />
           <Text style={{ color: "white" }}>Filter by</Text>
         </TouchableOpacity>
@@ -1264,7 +1264,7 @@ export default function ChargeMap({ navigation }) {
             />
             <Text>{filterCharger}</Text>
           </View>
-        ) : null}
+        ) : null} */}
       </View>
     );
   };
@@ -1273,13 +1273,13 @@ export default function ChargeMap({ navigation }) {
   const SortingView = () => {
     return (
       <View style={styles.sortingContainer}>
-        <TouchableOpacity
+        {/* <TouchableOpacity
           style={[styles.filterButton, { width: "50%" }]}
           onPress={selectSort}
         >
           <Icon name="sort" color="white" />
           <Text style={{ color: "white" }}>Sorted by {sortOption}</Text>
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     );
   };
