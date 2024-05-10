@@ -58,7 +58,6 @@ export default function EditLocation({ navigation, route }) {
   const [status, setStatus] = useState("Loading...");
   const [color, setColor] = useState("white");
 
-  // make a reqeust to api to get all the states from a given country
   async function getStates(countryCode) {
     if (countryCode === "") {
       setCity("");
@@ -90,6 +89,8 @@ export default function EditLocation({ navigation, route }) {
     }
     setLoading(false);
   }
+
+  
 
   // Driver function
   useEffect(() => {
@@ -192,37 +193,66 @@ export default function EditLocation({ navigation, route }) {
   };
 
   // Check address validity
-  const checkAddress = async () => {
-    return await Location.geocodeAsync(address + " " + city)
-      .then(async (coords) => {
+  // const checkAddress = async () => {
+  //   return await Location.geocodeAsync(address + " " + city)
+  //     .then(async (coords) => {
+  //       if (coords.length == 0) {
+  //         Alert.alert("Invalid Address");
+  //         setLoadingSave(false);
+  //         return;
+  //       }
+  //       return await Location.reverseGeocodeAsync(coords[0]).then(
+  //         (locations) => {
+  //           const check =
+  //             locations[0].postalCode == postalCode &&
+  //             locations[0].isoCountryCode == country;
+  //           if (check) {
+  //             setCoords([coords[0].latitude, coords[0].longitude]);
+  //             setLocationHash(
+  //               geohashForLocation([coords[0].latitude, coords[0].longitude])
+  //             );
+  //           } else {
+  //             Alert.alert(
+  //               "Invalid Address",
+  //               "It is likely that your postal code do not match your written address"
+  //             );
+  //             setLoadingSave(false);
+  //           }
+  //           return check;
+  //         }
+  //       );
+  //     })
+  //     .catch((err) => console.log(err));
+  // };
+  const checkAddress = () => {
+    Location.geocodeAsync(address + " " + city)
+      .then((coords) => {
         if (coords.length == 0) {
           Alert.alert("Invalid Address");
-          setLoadingSave(false);
+          setLoading(false);
           return;
         }
-        return await Location.reverseGeocodeAsync(coords[0]).then(
-          (locations) => {
-            const check =
-              locations[0].postalCode == postalCode &&
-              locations[0].isoCountryCode == country;
-            if (check) {
-              setCoords([coords[0].latitude, coords[0].longitude]);
-              setLocationHash(
-                geohashForLocation([coords[0].latitude, coords[0].longitude])
-              );
-            } else {
-              Alert.alert(
-                "Invalid Address",
-                "It is likely that your postal code do not match your written address"
-              );
-              setLoadingSave(false);
-            }
-            return check;
+        Location.reverseGeocodeAsync(coords[0]).then((locations) => {
+          const check =
+            locations[0].postalCode == postalCode &&
+            locations[0].country == country;
+          console.log(locations)
+          if (check) {
+            setCoords([coords[0].latitude, coords[0].longitude]);
+            setLocationHash(
+              geohashForLocation([coords[0].latitude, coords[0].longitude])
+            );
+            setLoading(false);
+            setPage((page) => page + 1);
+          } else {
+            Alert.alert("Invalid Address", "It is likely that your postal code do not match your written address");
+            setLoading(false);
           }
-        );
+        });
       })
       .catch((err) => console.log(err));
   };
+
 
   // Updates placeID when coords change
   useEffect(() => {
@@ -261,8 +291,8 @@ export default function EditLocation({ navigation, route }) {
       Alert.alert("Please ensure all fields are filled up");
       return;
     }
-    if (await checkAddress()) await uploadData();
-    else return;
+    await uploadData();
+    // else return;
     setLoadingSave(false);
     navigation.navigate("View Locations");
   };
@@ -336,7 +366,7 @@ export default function EditLocation({ navigation, route }) {
         <Icon name="arrow-back-ios" />
       </TouchableOpacity>
       <ImageBackground
-        source={{ uri: image }}
+        source={{ url: image }}
         style={styles.image}
         blurRadius={1}
       >
@@ -445,8 +475,7 @@ export default function EditLocation({ navigation, route }) {
                 value: "",
               }}
               items={[
-                { label: "United States", value: "US" },
-                { label: "Singapore", value: "SG" },
+                { label: "United States", value: "United States"  },
               ]}
               style={pickerSelectStylesHalved}
             />
@@ -454,16 +483,13 @@ export default function EditLocation({ navigation, route }) {
               onValueChange={setCity}
               value={city}
               placeholder={{
-                label: "City",
+                label: "State",
                 value: "",
               }}
-              items={
-                country == "SG"
-                  ? [{ label: "Singapore", value: "Singapore" }]
-                  : states
-              }
+              items={states}
               style={pickerSelectStylesHalved}
             />
+
           </View>
           <Input
             placeholder="Address"
@@ -632,8 +658,7 @@ const styles = StyleSheet.create({
     opacity: 0.5,
   },
   content: {
-    paddingTop: "5%",
-    backgroundColor:'black'
+    marginTop: "5%",
   },
   priceContainer: {
     width: "100%",
