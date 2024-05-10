@@ -118,7 +118,7 @@ export default function HostHomeScreen({ navigation }) {
           textColor="white"
           onPress={userAddLocation}
         />
-        <Text
+        {/* <Text
           h2
           h2Style={{
             fontFamily: "Inter-Bold",
@@ -136,7 +136,7 @@ export default function HostHomeScreen({ navigation }) {
           logoName="contact-support"
           textColor="white"
           onPress={() => Linking.openURL("https://t.me/ChargeEVHelpBot")}
-        />
+        /> */}
       </SafeAreaView>
     </ScrollView>
   );

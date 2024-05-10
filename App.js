@@ -32,10 +32,13 @@ import { StatusBar } from 'expo-status-bar';
 import EditLocation from "./components/Host/EditLocation";
 import EVNews from "./components/EVNews"
 
-LogBox.ignoreLogs([
+LogBox.ignoreLogs([,
+  "Warning: ...",
   "ViewPropTypes will be removed",
   "AsyncStorage has been extracted from react-native core and will be removed in a future release.",
 ]);
+
+LogBox.ignoreAllLogs();
 
 const Stack = createNativeStackNavigator();
 const theme = createTheme(themeConfig);

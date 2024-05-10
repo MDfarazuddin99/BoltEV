@@ -152,7 +152,7 @@ export default function Profile({ navigation }) {
               <Text style={styles.menuItemText}>Tell Your Friends</Text>
             </View>
           </TouchableRipple>
-          <TouchableRipple
+          {/* <TouchableRipple
             onPress={() => {
               Linking.openURL("https://t.me/ChargeEVHelpBot");
             }}
@@ -161,7 +161,7 @@ export default function Profile({ navigation }) {
               <Icon name="account-check-outline" color="#1BB530" size={25} />
               <Text style={styles.menuItemText}>Support</Text>
             </View>
-          </TouchableRipple>
+          </TouchableRipple> */}
           <TouchableRipple onPress={SignOut}>
             <View style={styles.menuItem}>
               <Icon name="logout" color="#1BB530" size={25} />

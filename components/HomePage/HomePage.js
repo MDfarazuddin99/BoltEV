@@ -85,8 +85,10 @@ export default function Homepage({ navigation }) {
           horizontal={true}
           showsHorizontalScrollIndicator={false}
           style={{
-            marginTop: 10,
+            width:'96%',
+            // marginTop: 10,
             marginLeft: "2%",
+            marginRight: "2%",
           }}
         >
           <TouchableOpacity
@@ -100,7 +102,7 @@ export default function Homepage({ navigation }) {
                 style={{ width: 70, height: 70, borderRadius: 30 }}
               />
               <View style={{ padding: "2%" }}></View>
-              <Text style={{ textAlign: "center" }}>Charge Map</Text>
+              <Text style={{ textAlign: "center", color:'white' }}>Charge Map</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity
@@ -145,7 +147,7 @@ export default function Homepage({ navigation }) {
               <Text style={{ textAlign: "center" }}>Profile</Text>
             </View>
           </TouchableOpacity>
-          <TouchableOpacity
+          {/* <TouchableOpacity
             onPress={() => {
               Linking.openURL("https://t.me/ChargeEVHelpBot");
             }}
@@ -157,7 +159,7 @@ export default function Homepage({ navigation }) {
               />
               <Text style={{ textAlign: "center" }}>Support</Text>
             </View>
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </ScrollView>
       </View>
       <ScrollView

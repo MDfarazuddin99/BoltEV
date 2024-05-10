@@ -40,7 +40,7 @@ export default function TrackUserLocation({ navigation, route }) {
           Loading...
         </Text>
         <Image
-          source={require("../../assets/logo_nobg_black.png")}
+          source={require("../../assets/logo_nobg_black1.png")}
           style={styles.loadingImage}
         />
       </View>
@@ -280,7 +280,7 @@ export default function TrackUserLocation({ navigation, route }) {
                 marginTop: "5%",
               }}
             >
-              <Image source={{ url: profilePicture }} style={styles.userdp} />
+              <Image source={{ uri: profilePicture }} style={styles.userdp} />
               <View>
                 <Text h3 h3Style={{ fontFamily: "Inter-SemiBold" }}>
                   {displayName}
@@ -367,7 +367,7 @@ const styles = StyleSheet.create({
   },
   loadingImage: {
     width: 313.6,
-    height: 100,
+    height: 200,
   },
   button: {
     backgroundColor: "#1BB530",
