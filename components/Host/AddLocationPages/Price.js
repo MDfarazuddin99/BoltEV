@@ -131,7 +131,7 @@ export default function Price({ price, setPrice, coords }) {
           onChangeText={setPrice}
           value={price}
         />
-        <Text h2 h2Style={{ fontSize: 25 }}>
+        <Text h2 h2Style={{ fontSize: 25, color:'white'}}>
           / charge
         </Text>
       </View>
@@ -140,14 +140,16 @@ export default function Price({ price, setPrice, coords }) {
           <DismissKeyboardView>
             {dataAvailable ? (
               <>
-                <Text h4 h4Style={{ marginBottom: "5%" }}>
-                  According to data from {infoSource} cost of electricity is{" "}
+                <Text h4 h4Style={{ marginBottom: "5%" , color:'#1BB530'}}>
+                  {/* According to data from {infoSource} cost of electricity is{" "} */}
+                  According to the prediction from our Machine Learning Model, the cost of electricity is{" "}
+
                   <Text h4 h4Style={{ fontFamily: "Inter-Bold" }}>
                     ${cost.toFixed(2)}/kwh{" "}
                   </Text>
                   from {utilityName}.
                 </Text>
-                <Text h4 h4Style={{ marginBottom: "5%" }}>
+                <Text h4 h4Style={{ marginBottom: "5%", color:'white' }}>
                   Average cost of a full charge is{" "}
                   <Text h4 h4Style={{ fontFamily: "Inter-Bold" }}>
                     ${(cost * 40).toFixed(2)} - ${(cost * 100).toFixed(2)}
@@ -176,7 +178,7 @@ export default function Price({ price, setPrice, coords }) {
                     flex: 1,
                   }}
                 >
-                  <Text style={{ fontFamily: "Inter-Bold", fontSize: 17 }}>
+                  <Text style={{ fontFamily: "Inter-Bold", fontSize: 17, color: 'white' }}>
                     Chargers Near You
                   </Text>
                   <View style={styles.chargerExplorer}>
@@ -225,6 +227,7 @@ export default function Price({ price, setPrice, coords }) {
 
 const styles = StyleSheet.create({
   container: {
+    // backgroundColor: 'white',
     width: "95%",
     display: "flex",
     justifyContent: "flex-start",
@@ -242,6 +245,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   text: {
+    color: 'white',
     display: "flex",
     flexDirection: "column",
     paddingLeft: "5%",
@@ -251,6 +255,7 @@ const styles = StyleSheet.create({
     marginTop: "3%",
   },
   chargerContainer: {
+    backgroundColor: 'white',
     borderWidth: 1,
     display: "flex",
     flexDirection: "row",
