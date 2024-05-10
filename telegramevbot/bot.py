@@ -1,5 +1,5 @@
 import logging
-from telegram.ext import Updater, CommandHandler, MessageHandler, Filters, CallbackQueryHandler
+from telegram.ext import Updater, CommandHandler, MessageHandler, filters, CallbackQueryHandler
 import os
 import Responses as R
 from telegram import *
@@ -11,7 +11,8 @@ logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s
                     level=logging.INFO)
 
 logger = logging.getLogger(__name__)
-TOKEN = '5517977202:AAGENBqDBuAXMNMw1LhI72ZuW1vFfHEf9P8'
+# TOKEN = '5517977202:AAGENBqDBuAXMNMw1LhI72ZuW1vFfHEf9P8'
+TOKEN = '6423261297:AAFLytR-neA5jRDTGpHcFN07mJHZ9TQz-hQ'
 
 
 # Define a few command handlers. These usually take the two arguments update and

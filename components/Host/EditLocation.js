@@ -366,7 +366,7 @@ export default function EditLocation({ navigation, route }) {
         <Icon name="arrow-back-ios" />
       </TouchableOpacity>
       <ImageBackground
-        source={{ url: image }}
+        source={{ uri: image }}
         style={styles.image}
         blurRadius={1}
       >
